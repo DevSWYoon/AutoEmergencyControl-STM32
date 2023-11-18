@@ -1,0 +1,53 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: •ÏVision V5.38.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Seokwon Yoon, Pusan National University, LIC=53CS7-YQ07H-7TP3I-6H2JU-CZLPV-2BW1Z
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Community  Version: 5.38.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.19
+Assembler:       Armasm.exe V6.19
+Linker/Locator:  ArmLink.exe V6.19
+Library Manager: ArmAr.exe V6.19
+Hex Converter:   FromElf.exe V6.19
+CPU DLL:         SARMCM3.DLL V5.38.0.0
+Dialog DLL:      DARMSTM.DLL V1.69.1.0
+Target DLL:      Segger\JL2CM3.dll V2.99.42.0
+Dialog DLL:      TARMSTM.DLL V1.67.1.0
+ 
+<h2>Project:</h2>
+C:\Users\Home\Desktop\Micrium\Software\EvalBoards\Micrium\uC-Eval-STM32F107\uCOS-III\KeilMDK\uCOS-III.uvproj
+Project File Date:  09/20/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'FLASH'
+compiling app.c...
+compiling bsp.c...
+compiling bsp_i2c.c...
+compiling bsp_periph.c...
+../../BSP/bsp_ser.c(265): warning: implicitly declaring library function 'vsnprintf' with type 'int (char *, unsigned int, const char *, __builtin_va_list)' [-Wimplicit-function-declaration]
+   (void)vsnprintf((char       *)&buf_str[0],
+         ^
+../../BSP/bsp_ser.c(265): note: include the header <stdio.h> or explicitly provide a declaration for 'vsnprintf'
+1 warning generated.
+compiling bsp_ser.c...
+compiling bsp_int.c...
+compiling bsp_stlm75.c...
+../../BSP/OS/uCOS-III/bsp_os.c(188): warning: expression which evaluates to zero treated as a null pointer constant of type 'CPU_TS *' (aka 'unsigned int *') [-Wnon-literal-null-conversion]
+              (CPU_TS  )0,
+              ^~~~~~~~~~~
+1 warning generated.
+compiling bsp_os.c...
+linking...
+Program Size: Code=55472 RO-data=972 RW-data=0 ZI-data=36272  
+".\Output\OS.axf" - 0 Error(s), 2 Warning(s).
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>
