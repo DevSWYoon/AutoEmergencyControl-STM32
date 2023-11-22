@@ -368,7 +368,7 @@
             <uC99>0</uC99>
             <uGnu>0</uGnu>
             <useXO>0</useXO>
-            <v6Lang>1</v6Lang>
+            <v6Lang>5</v6Lang>
             <v6LangP>5</v6LangP>
             <vShortEn>1</vShortEn>
             <vShortWch>1</vShortWch>
@@ -379,7 +379,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\uCOS-III;..\..\BSP;..\..\BSP\OS\uCOS-III;..\..\BSP\ST\STM32\inc;..\..\BSP\KeilMDK;..\..\..\..\..\uC-CPU;..\..\..\..\..\uC-CPU\ARM-Cortex-M3\RealView;..\..\..\..\..\uC-LIB;..\..\..\..\..\uC-LIB\Ports\ARM-Cortex-M3\RealView;..\..\..\..\..\uCOS-III\Source;..\..\..\..\..\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView</IncludePath>
+              <IncludePath>..\..\uCOS-III;..\..\BSP;..\..\BSP\OS\uCOS-III;..\..\BSP\ST\STM32\inc;..\..\BSP\KeilMDK;..\..\..\..\..\uC-CPU;..\..\..\..\..\uC-CPU\ARM-Cortex-M3\RealView;..\..\..\..\..\uC-LIB;..\..\..\..\..\uC-LIB\Ports\ARM-Cortex-M3\RealView;..\..\..\..\..\uCOS-III\Source;..\..\..\..\..\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView;..\..\BSP\ST\STM32_HAL\Inc;.\FLASH;..\..\BSP\ST\MPU-6050</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -997,6 +997,26 @@
               <FileName>stm32f10x_wwdg.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\BSP\ST\STM32\src\stm32f10x_wwdg.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>MPU-6050</GroupName>
+          <Files>
+            <File>
+              <FileName>MPU6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\BSP\ST\MPU-6050\MPU6050.c</FilePath>
+            </File>
+            <File>
+              <FileName>HAL_MPU6050.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\BSP\ST\MPU-6050\HAL_MPU6050.h</FilePath>
+            </File>
+            <File>
+              <FileName>MPU6050.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\BSP\ST\MPU-6050\MPU6050.h</FilePath>
             </File>
           </Files>
         </Group>

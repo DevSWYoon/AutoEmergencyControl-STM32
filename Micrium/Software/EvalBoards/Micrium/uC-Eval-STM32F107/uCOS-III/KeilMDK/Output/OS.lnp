@@ -59,6 +59,7 @@
 ".\output\stm32f10x_tim.o"
 ".\output\stm32f10x_usart.o"
 ".\output\stm32f10x_wwdg.o"
+".\output\mpu6050.o"
 --library_type=microlib --strict --scatter ".\Output\OS.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
