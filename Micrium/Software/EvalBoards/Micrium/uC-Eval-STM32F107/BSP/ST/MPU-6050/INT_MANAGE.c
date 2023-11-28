@@ -8,25 +8,24 @@
 
 #include "MPU6050.h"
 
-void ACC_InterruptSetup() {
+void setup() {
     // MPU6050_1 및 MPU6050_2 초기화
-    // 클럭 소스를 X 축 자이로스코프로 설정 (예시 값)
-    MPU6050_WriteByte(MPU6050_1, MPU6050_RA_PWR_MGMT_1, 1 << MPU6050_PWR1_CLKSEL_BIT);
-    MPU6050_WriteByte(MPU6050_2, MPU6050_RA_PWR_MGMT_1, 1 << MPU6050_PWR1_CLKSEL_BIT);
+    // 클럭 소스를 X 축 자이로스코프로 설정
+    MPU6050_WriteBits(MPU6050_1, MPU6050_RA_PWR_MGMT_1, 2, 3, 0x01);
+    MPU6050_WriteBits(MPU6050_2, MPU6050_RA_PWR_MGMT_1, 2, 3, 0x01);
 
-    // 가속도계의 full-scale range를 ±2G로 설정 (2G : 0x00, 4G : 0x08, 8G : 0x10, 16G : 0x18)
-    MPU6050_WriteByte(MPU6050_1, MPU6050_RA_ACCEL_CONFIG, 0x00); // ±2G (예시 값)
-    MPU6050_WriteByte(MPU6050_2, MPU6050_RA_ACCEL_CONFIG, 0x00); // ±2G (예시 값)
+    // 가속도계의 full-scale range를 ±2G로 설정
+    MPU6050_WriteBits(MPU6050_1, MPU6050_RA_ACCEL_CONFIG, 3, 2, 0x00); // ±2G
+    MPU6050_WriteBits(MPU6050_2, MPU6050_RA_ACCEL_CONFIG, 3, 2, 0x00); // ±2G
 
     // 모션 인터럽트 임계값 설정
+    uint8_t threshold_1 = 0x40; // 1G에 해당하는 값
+    uint8_t threshold_2 = 0x80; // 2G에 해당하는 값
 
-    uint8_t threshold_1 = 0x40; // 1G에 해당하는 값 (예시)
-    uint8_t threshold_2 = 0x80; // 2G에 해당하는 값 (예시)
-
-    // ±2G 설정에서 1G는 32768의 절반에 해당
-    MPU6050_WriteByte(MPU6050_1, MPU6050_RA_MOT_THR, threshold_1); 
-    MPU6050_WriteByte(MPU6050_2, MPU6050_RA_MOT_THR, threshold_2); 
+    MPU6050_WriteBits(MPU6050_1, MPU6050_RA_MOT_THR, 0, 8, threshold_1);
+    MPU6050_WriteBits(MPU6050_2, MPU6050_RA_MOT_THR, 0, 8, threshold_2);
 }
+
 
 void InterruptInitailize() {
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE); // GPIOC 클럭 활성화
@@ -71,7 +70,7 @@ void InterruptInitailize() {
 
     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); // 인터럽트 우선순위 그룹 2로 설정
 
-    NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQChannel // EXTI0 인터럽트
+    NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQChannel; // EXTI0 인터럽트
     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x00; // 선점 우선순위 0
     NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x00; // 서브 우선순위 0
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE; // EXTI0 인터럽트 활성화
