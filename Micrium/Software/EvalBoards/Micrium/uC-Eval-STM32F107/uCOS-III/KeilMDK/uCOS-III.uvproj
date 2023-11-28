@@ -864,6 +864,11 @@
               <FilePath>..\..\BSP\ST\STM32\inc\stm32f10x_spi.h</FilePath>
             </File>
             <File>
+              <FileName>stm32f10x_usart.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\BSP\ST\STM32\inc\stm32f10x_usart.h</FilePath>
+            </File>
+            <File>
               <FileName>stm32f10x_systick.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\BSP\ST\STM32\inc\stm32f10x_systick.h</FilePath>
@@ -879,24 +884,19 @@
               <FilePath>..\..\BSP\ST\STM32\inc\stm32f10x_type.h</FilePath>
             </File>
             <File>
-              <FileName>stm32f10x_usart.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\BSP\ST\STM32\inc\stm32f10x_usart.h</FilePath>
-            </File>
-            <File>
               <FileName>stm32f10x_wwdg.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\BSP\ST\STM32\inc\stm32f10x_wwdg.h</FilePath>
             </File>
             <File>
-              <FileName>stm32f10x_adc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\BSP\ST\STM32\src\stm32f10x_adc.c</FilePath>
-            </File>
-            <File>
               <FileName>stm32f10x_bkp.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\BSP\ST\STM32\src\stm32f10x_bkp.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\BSP\ST\STM32\src\stm32f10x_adc.c</FilePath>
             </File>
             <File>
               <FileName>stm32f10x_can.c</FileName>
@@ -998,6 +998,31 @@
               <FileType>1</FileType>
               <FilePath>..\..\BSP\ST\STM32\src\stm32f10x_wwdg.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f10x_nvic.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\BSP\ST\STM32\inc\stm32f10x_nvic.h</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_nvic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\BSP\ST\STM32\src\stm32f10x_nvic.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_pwr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\BSP\ST\STM32\src\stm32f10x_pwr.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_pwr.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\BSP\ST\STM32\inc\stm32f10x_pwr.h</FilePath>
+            </File>
+            <File>
+              <FileName>cortexm3_macro.S</FileName>
+              <FileType>2</FileType>
+              <FilePath>..\..\BSP\ST\STM32\src\cortexm3_macro.S</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1017,6 +1042,11 @@
               <FileName>MPU6050.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\BSP\ST\MPU-6050\MPU6050.h</FilePath>
+            </File>
+            <File>
+              <FileName>INT_MANAGE.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\BSP\ST\MPU-6050\INT_MANAGE.c</FilePath>
             </File>
           </Files>
         </Group>
