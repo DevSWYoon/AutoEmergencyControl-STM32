@@ -1,13 +1,8 @@
-#include "INT_MANAGE.h"
-#include "stm32f10x_conf.h"
-#include "stm32f10x_exti.h"
-#include "stm32f10x_gpio.h"
-#include "stm32f10x_rcc.h"
-#include "MPU6050.h"
-#include "HAL_MPU6050.h"
-
+#include "stm32f10x_lib.h"
 #include "MPU6050.h"
 
+#define MPU6050_1 0x68 // MPU6050_1의 I2C 주소
+#define MPU6050_2 0x69 // MPU6050_2의 I2C 주소
 void setup() {
     // MPU6050_1 및 MPU6050_2 초기화
     // 클럭 소스를 X 축 자이로스코프로 설정
