@@ -1050,6 +1050,21 @@
             </File>
           </Files>
         </Group>
+        <Group>
+          <GroupName>INT_MANAGE</GroupName>
+          <Files>
+            <File>
+              <FileName>INT_MANAGE.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\INT_MANAGE.c</FilePath>
+            </File>
+            <File>
+              <FileName>INT_MANAGE.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\INT_MANAGE.h</FilePath>
+            </File>
+          </Files>
+        </Group>
       </Groups>
     </Target>
   </Targets>
