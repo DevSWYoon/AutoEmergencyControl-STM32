@@ -51,6 +51,8 @@
 */
 
 static  OS_TCB   AppTaskStartTCB;
+static  OS_TCB   AppTaskCollisionTCB;
+static  OS_TCB   AppTaskSuddenAccelTCB;
 
 
 /*
@@ -60,7 +62,8 @@ static  OS_TCB   AppTaskStartTCB;
 */
 
 static  CPU_STK  AppTaskStartStk[APP_TASK_START_STK_SIZE];
-
+static  CPU_STK  AppTaskCollisionStk[APP_TASK_COLLISION_STK_SIZE];
+static  CPU_STK  AppTaskSuddenAccelStk[APP_TASK_SUDDEN_ACCEL_STK_SIZE];
 
 /*
 *********************************************************************************************************
@@ -71,6 +74,8 @@ static  CPU_STK  AppTaskStartStk[APP_TASK_START_STK_SIZE];
 static  void  AppTaskCreate (void);
 static  void  AppObjCreate  (void);
 static  void  AppTaskStart  (void *p_arg);
+static  void  AppTaskCollision  (void *p_arg);
+static  void  AppTaskSuddenAccel  (void *p_arg);
 
 
 /*

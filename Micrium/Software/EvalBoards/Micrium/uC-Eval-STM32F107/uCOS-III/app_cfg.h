@@ -47,7 +47,9 @@
 *********************************************************************************************************
 */
 
-#define  APP_TASK_START_PRIO                        2
+#define  APP_TASK_START_PRIO                        4
+#define  APP_TASK_COLLISION_PRIO                    0
+#define  APP_TASK_SUDDEN_ACCEL_PRIO                 1
 
 
 /*
@@ -58,6 +60,17 @@
 */
 
 #define  APP_TASK_START_STK_SIZE                    128
+#define  APP_TASK_COLLISION_STK_SIZE                128
+#define  APP_TASK_SUDDEN_ACCEL_STK_SIZE             128
+
+/*
+*********************************************************************************************************
+*                                     KERNEL OBJECT DEFINES
+*********************************************************************************************************
+*/
+
+OS_Q   SuddenAccelQ;
+void * SuddenAccelQPtrs[10];
 
 
 /*

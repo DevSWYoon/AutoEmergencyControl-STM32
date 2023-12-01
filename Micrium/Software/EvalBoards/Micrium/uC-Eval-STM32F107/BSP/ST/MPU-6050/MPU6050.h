@@ -39,6 +39,13 @@ extern "C" {
 #include "HAL_MPU6050.h"
 #include <stdint.h>
 
+/********************************* USER CODE *********************************/
+
+#define MPU6050_1_ADDR 0x68 // MPU6050_1의 I2C 주소
+#define MPU6050_2_ADDR 0x69 // MPU6050_2의 I2C 주소
+
+/********************************* USER CODE *********************************/
+
 #define MPU6050_ADDRESS_AD0_LOW     0x68 // address pin low (GND), default for InvenSense evaluation board
 #define MPU6050_ADDRESS_AD0_HIGH    0x69 // address pin high (VCC)
 #define MPU6050_DEFAULT_ADDRESS     (MPU6050_ADDRESS_AD0_LOW<<1)
