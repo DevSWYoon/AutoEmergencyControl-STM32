@@ -193,6 +193,35 @@ static  void  AppTaskStart (void *p_arg)
 
 static  void  AppTaskCreate (void)
 {
+    OS_ERR  err;
+    
+    OSTaskCreate((OS_TCB     *)&AppTaskCollisionTCB,                /* Create the start task                                */
+                 (CPU_CHAR   *)"App Task Collision",
+                 (OS_TASK_PTR ) AppTaskCollision,
+                 (void       *) 0,
+                 (OS_PRIO     ) APP_TASK_COLLISION_PRIO,
+                 (CPU_STK    *)&AppTaskCollisionStk[0],
+                 (CPU_STK_SIZE) APP_TASK_COLLISION_STK_SIZE / 10,
+                 (CPU_STK_SIZE) APP_TASK_COLLISION_STK_SIZE,
+                 (OS_MSG_QTY  ) 5u,
+                 (OS_TICK     ) 0u,
+                 (void       *) 0,
+                 (OS_OPT      )(OS_OPT_TASK_STK_CHK | OS_OPT_TASK_STK_CLR),
+                 (OS_ERR     *)&err);
+    
+    OSTaskCreate((OS_TCB     *)&AppTaskSuddenAccelTCB,                /* Create the start task                                */
+                 (CPU_CHAR   *)"App Task Sudden Accel",
+                 (OS_TASK_PTR ) AppTaskSuddenAccel,
+                 (void       *) 0,
+                 (OS_PRIO     ) APP_TASK_SUDDEN_ACCEL_PRIO,
+                 (CPU_STK    *)&AppTaskSuddenAccelStk[0],
+                 (CPU_STK_SIZE) APP_TASK_SUDDEN_ACCEL_STK_SIZE / 10,
+                 (CPU_STK_SIZE) APP_TASK_SUDDEN_ACCEL_STK_SIZE,
+                 (OS_MSG_QTY  ) 5u,
+                 (OS_TICK     ) 0u,
+                 (void       *) 0,
+                 (OS_OPT      )(OS_OPT_TASK_STK_CHK | OS_OPT_TASK_STK_CLR),
+                 (OS_ERR     *)&err);
 }
 
 
@@ -210,4 +239,51 @@ static  void  AppTaskCreate (void)
 
 static  void  AppObjCreate (void)
 {
+    OS_ERR  err;
+    
+    OSQCreate((OS_Q *)&SuddenAccelMsgQ,
+              (CPU_CHAR *)"Sudden Accel Msg Q",
+              (OS_MSG_QTY) 10,
+              (OS_ERR *)&err);
+}
+
+
+static void AppTaskCollision(void *p_arg) {
+    OS_ERR err;
+    
+    while (DEF_TRUE) {
+        void *p_msg = OSTaskQPend(0, OS_OPT_PEND_BLOCKING, NULL, NULL, &err);
+
+        if (err == OS_ERR_NONE) {
+            APP_TRACE_INFO(("Collision Detected!\n\r"));
+
+            BSP_LED_On(0);
+        }
+        
+    }
+}
+
+static void AppTaskSuddenAccel(void *p_arg) {
+    OS_ERR err;
+    
+    while (DEF_TRUE) {
+        void *p_msg = OSTaskQPend(0, OS_OPT_PEND_BLOCKING, NULL, NULL, &err);
+
+        if (err == OS_ERR_NONE) {
+            APP_TRACE_INFO(("Sudden Accel Detected!\n\r"));
+
+            // 3-second timeout-pending MsgQ "SuddenAccelMsgQ"
+            void *msg = OSQPend(&SuddenAccelMsgQ, 3000, OS_OPT_PEND_BLOCKING, NULL, NULL, &err);
+
+            if (err == OS_ERR_NONE) {
+                APP_TRACE_INFO(("Sudden Accel Aborted!\n\r"));
+            } else if (err == OS_ERR_TIMEOUT) {
+                APP_TRACE_INFO(("Sudden Accel Detected!\n\r"));
+            }
+
+            BSP_LED_On(1);
+
+        }
+        
+    }
 }

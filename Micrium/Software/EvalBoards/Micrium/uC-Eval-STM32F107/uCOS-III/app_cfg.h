@@ -69,8 +69,8 @@
 *********************************************************************************************************
 */
 
-OS_Q   SuddenAccelQ;
-void * SuddenAccelQPtrs[10];
+OS_Q   SuddenAccelMsgQ;
+void * SuddenAccelMsgQPtrs[10];
 
 
 /*
