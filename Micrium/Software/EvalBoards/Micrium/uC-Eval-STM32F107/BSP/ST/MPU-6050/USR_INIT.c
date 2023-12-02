@@ -1,5 +1,6 @@
 #include "USR_INIT.h"
 #include <includes.h>
+#include "bsp.h"
 
 void EXTI0_IRQHandler(void);
 void EXTI1_IRQHandler(void);
@@ -19,7 +20,6 @@ void Enable_Motion_Interrupt(uint8_t address, uint8_t threshold) {
     MPU6050_WriteBits(address, MPU6050_RA_MOT_THR, 0, 7, ((uint8_t)1 << 5));
 	  MPU6050_WriteBit(address, MPU6050_RA_INT_ENABLE, MPU6050_INTERRUPT_MOT_BIT, 1);
     // 모션 인터럽트 설정
-    //MPU6050_WriteBits(address, MPU6050_RA_INT_ENABLE, MPU6050_INTERRUPT_MOT_BIT, 1, 1);
 }
 
 void RCC_Configuration(void) {
@@ -80,18 +80,45 @@ void EXTI_Configuration(void) {
     EXTI_Init(&EXTI_InitStructure);
 }
 
-void NVIC_Configuration(void) {
-		BSP_IntInit();
-	
-		BSP_IntVectSet(BSP_INT_ID_EXTI0, EXTI0_IRQHandler);
-		BSP_IntPrioSet(BSP_INT_ID_EXTI0, 0);
-	  BSP_IntEn(BSP_INT_ID_EXTI0);
-	
-		BSP_IntVectSet(BSP_INT_ID_EXTI1, EXTI1_IRQHandler);
-		BSP_IntPrioSet(BSP_INT_ID_EXTI1, 1);
-	  BSP_IntEn(BSP_INT_ID_EXTI1);
-	
-	  BSP_IntVectSet(BSP_INT_ID_EXTI2, EXTI2_IRQHandler);
-		BSP_IntPrioSet(BSP_INT_ID_EXTI2, 2);
-	  BSP_IntEn(BSP_INT_ID_EXTI2);
+void Interrupt_Configuration(void) {
+    RCC_Configuration();
+    GPIO_Configuration();
+    EXTI_Configuration();
+
+    // BSP Interrupt 설정
+    BSP_IntVectSet(BSP_INT_ID_EXTI0, EXTI0_IRQHandler);
+    BSP_IntVectSet(BSP_INT_ID_EXTI1, EXTI1_IRQHandler);
+    BSP_IntVectSet(BSP_INT_ID_EXTI2, EXTI2_IRQHandler);
+
+    // BSP Priority 설정
+    BSP_IntPrioSet(BSP_INT_ID_EXTI0, 0);
+    BSP_IntPrioSet(BSP_INT_ID_EXTI1, 1);
+    BSP_IntPrioSet(BSP_INT_ID_EXTI2, 2);
+
+    // BSP Interrupt Enable
+    BSP_IntEn(BSP_INT_ID_EXTI0);
+    BSP_IntEn(BSP_INT_ID_EXTI1);
+    BSP_IntEn(BSP_INT_ID_EXTI2);
 }
+
+// void BSP_Configuration(void) {
+//     // RCC 설정
+//     RCC_Configuration();
+
+//     // GPIO 설정
+//     GPIO_Configuration();
+
+//     // EXTI 설정
+//     EXTI_Configuration();
+
+//     // BSP Interrupt 설정
+//     BSP_IntVectSet(BSP_INT_ID_EXTI0, EXTI0_IRQHandler);
+//     BSP_IntVectSet(BSP_INT_ID_EXTI1, EXTI1_IRQHandler);
+//     BSP_IntVectSet(BSP_INT_ID_EXTI2, EXTI2_IRQHandler);
+
+//     // BSP Interrupt Enable
+//     BSP_IntEn(BSP_INT_ID_EXTI0);
+//     BSP_IntEn(BSP_INT_ID_EXTI1);
+//     BSP_IntEn(BSP_INT_ID_EXTI2);
+// }
+

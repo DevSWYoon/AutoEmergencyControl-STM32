@@ -2,6 +2,7 @@
     "files.associations": {
         "stm32f10x_conf.h": "c",
         "stm32f10x_exti.h": "c",
-        "int_manage.h": "c"
+        "int_manage.h": "c",
+        "includes.h": "c"
     }
 }

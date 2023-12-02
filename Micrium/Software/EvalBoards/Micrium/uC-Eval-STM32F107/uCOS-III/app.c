@@ -177,19 +177,14 @@ static  void  AppTaskStart (void *p_arg)
     BSP_Ser_Init(115200);                                       /* Enable Serial Interface                              */
 #endif
 
+        Interrupt_configuration();                             /* Enable Interrupts  (Rcently Added)                     */
+
 		MPU6050_I2C_Init();
 		
     MPU6050_TestConnection();
 		
 		Initialize_MPU6050(MPU6050_1_ADDR);
 		Enable_Motion_Interrupt(MPU6050_1_ADDR, (uint8_t)MPU6050_Threshold);
-
-		RCC_Configuration();
-		GPIO_Configuration();
-		EXTI_Configuration();
-		/*
-		NVIC_Configuration();
-	  */
 
 	
     
@@ -287,8 +282,8 @@ static  void  AppObjCreate (void)
 
 static void AppTaskCollision(void *p_arg) {
     OS_ERR err;
-		OS_MSG_SIZE size;
-		CPU_TS ts;
+	OS_MSG_SIZE size;
+	CPU_TS ts;
 	  int i;
 
 	

@@ -19,4 +19,3 @@ void Enable_Motion_Interrupt(uint8_t address, uint8_t threshold);
 void RCC_Configuration(void);
 void GPIO_Configuration(void);
 void EXTI_Configuration(void);
-void NVIC_Configuration(void);
