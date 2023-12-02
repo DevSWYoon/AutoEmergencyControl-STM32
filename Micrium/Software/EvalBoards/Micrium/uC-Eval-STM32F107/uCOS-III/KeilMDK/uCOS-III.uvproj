@@ -368,7 +368,7 @@
             <uC99>0</uC99>
             <uGnu>0</uGnu>
             <useXO>0</useXO>
-            <v6Lang>5</v6Lang>
+            <v6Lang>1</v6Lang>
             <v6LangP>5</v6LangP>
             <vShortEn>1</vShortEn>
             <vShortWch>1</vShortWch>
@@ -379,7 +379,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\uCOS-III;..\..\BSP;..\..\BSP\OS\uCOS-III;..\..\BSP\ST\STM32\inc;..\..\BSP\KeilMDK;..\..\..\..\..\uC-CPU;..\..\..\..\..\uC-CPU\ARM-Cortex-M3\RealView;..\..\..\..\..\uC-LIB;..\..\..\..\..\uC-LIB\Ports\ARM-Cortex-M3\RealView;..\..\..\..\..\uCOS-III\Source;..\..\..\..\..\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView;..\..\BSP\ST\STM32_HAL\Inc;.\FLASH;..\..\BSP\ST\MPU-6050</IncludePath>
+              <IncludePath>..\..\uCOS-III;..\..\BSP;..\..\BSP\OS\uCOS-III;..\..\BSP\ST\STM32\inc;..\..\BSP\KeilMDK;..\..\..\..\..\uC-CPU;..\..\..\..\..\uC-CPU\ARM-Cortex-M3\RealView;..\..\..\..\..\uC-LIB;..\..\..\..\..\uC-LIB\Ports\ARM-Cortex-M3\RealView;..\..\..\..\..\uCOS-III\Source;..\..\..\..\..\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView;..\..\BSP\ST\MPU-6050</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -864,11 +864,6 @@
               <FilePath>..\..\BSP\ST\STM32\inc\stm32f10x_spi.h</FilePath>
             </File>
             <File>
-              <FileName>stm32f10x_usart.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\BSP\ST\STM32\inc\stm32f10x_usart.h</FilePath>
-            </File>
-            <File>
               <FileName>stm32f10x_systick.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\BSP\ST\STM32\inc\stm32f10x_systick.h</FilePath>
@@ -884,19 +879,24 @@
               <FilePath>..\..\BSP\ST\STM32\inc\stm32f10x_type.h</FilePath>
             </File>
             <File>
+              <FileName>stm32f10x_usart.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\BSP\ST\STM32\inc\stm32f10x_usart.h</FilePath>
+            </File>
+            <File>
               <FileName>stm32f10x_wwdg.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\BSP\ST\STM32\inc\stm32f10x_wwdg.h</FilePath>
             </File>
             <File>
-              <FileName>stm32f10x_bkp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\BSP\ST\STM32\src\stm32f10x_bkp.c</FilePath>
-            </File>
-            <File>
               <FileName>stm32f10x_adc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\BSP\ST\STM32\src\stm32f10x_adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_bkp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\BSP\ST\STM32\src\stm32f10x_bkp.c</FilePath>
             </File>
             <File>
               <FileName>stm32f10x_can.c</FileName>
@@ -998,41 +998,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\BSP\ST\STM32\src\stm32f10x_wwdg.c</FilePath>
             </File>
-            <File>
-              <FileName>stm32f10x_nvic.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\BSP\ST\STM32\inc\stm32f10x_nvic.h</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f10x_nvic.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\BSP\ST\STM32\src\stm32f10x_nvic.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f10x_pwr.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\BSP\ST\STM32\src\stm32f10x_pwr.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f10x_pwr.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\BSP\ST\STM32\inc\stm32f10x_pwr.h</FilePath>
-            </File>
-            <File>
-              <FileName>cortexm3_macro.S</FileName>
-              <FileType>2</FileType>
-              <FilePath>..\..\BSP\ST\STM32\src\cortexm3_macro.S</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>MPU-6050</GroupName>
+          <GroupName>MPU6050</GroupName>
           <Files>
-            <File>
-              <FileName>MPU6050.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\BSP\ST\MPU-6050\MPU6050.c</FilePath>
-            </File>
             <File>
               <FileName>HAL_MPU6050.h</FileName>
               <FileType>5</FileType>
@@ -1044,24 +1014,19 @@
               <FilePath>..\..\BSP\ST\MPU-6050\MPU6050.h</FilePath>
             </File>
             <File>
-              <FileName>INT_MANAGE.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\BSP\ST\MPU-6050\INT_MANAGE.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>INT_MANAGE</GroupName>
-          <Files>
-            <File>
-              <FileName>INT_MANAGE.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\INT_MANAGE.c</FilePath>
-            </File>
-            <File>
-              <FileName>INT_MANAGE.h</FileName>
+              <FileName>USR_INIT.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\INT_MANAGE.h</FilePath>
+              <FilePath>..\..\BSP\ST\MPU-6050\USR_INIT.h</FilePath>
+            </File>
+            <File>
+              <FileName>MPU6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\BSP\ST\MPU-6050\MPU6050.c</FilePath>
+            </File>
+            <File>
+              <FileName>USR_INIT.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\BSP\ST\MPU-6050\USR_INIT.c</FilePath>
             </File>
           </Files>
         </Group>

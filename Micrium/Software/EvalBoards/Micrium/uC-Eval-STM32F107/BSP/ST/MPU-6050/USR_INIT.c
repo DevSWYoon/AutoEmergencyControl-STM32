@@ -1,22 +1,25 @@
-#include "stm32f10x_lib.h"
-#include "stm32f10x_nvic.h"
 #include "USR_INIT.h"
 #include <includes.h>
 
-void Initialize_MPU6050(uint8_t address) {
-    // 클럭 소스를 X 축 자이로스코프로 설정
-    MPU6050_WriteBits(address, MPU6050_RA_PWR_MGMT_1, 2, 3, 0x01);
+void EXTI0_IRQHandler(void);
+void EXTI1_IRQHandler(void);
+void EXTI2_IRQHandler(void);
 
-    // 가속도계의 full-scale range를 ±2G로 설정
-    MPU6050_WriteBits(address, MPU6050_RA_ACCEL_CONFIG, 3, 2, MPU6050_SCALE); // ±2G
+uint8_t buffer[1] = {100};
+
+void Initialize_MPU6050(uint8_t address) {
+	  MPU6050_SetClockSource(address, MPU6050_CLOCK_PLL_XGYRO);
+    MPU6050_SetFullScaleGyroRange(address, MPU6050_GYRO_FS_250);
+    MPU6050_SetFullScaleAccelRange(address, MPU6050_ACCEL_FS_2);
+    MPU6050_SetSleepModeStatus(address, DISABLE);
 }
 
 void Enable_Motion_Interrupt(uint8_t address, uint8_t threshold) {
     // 모션 인터럽트 임계값 설정
-    MPU6050_WriteBits(address, MPU6050_RA_MOT_THR, 0, 8, threshold);
-
+    MPU6050_WriteBits(address, MPU6050_RA_MOT_THR, 0, 7, ((uint8_t)1 << 5));
+	  MPU6050_WriteBit(address, MPU6050_RA_INT_ENABLE, MPU6050_INTERRUPT_MOT_BIT, 1);
     // 모션 인터럽트 설정
-    MPU6050_WriteBits(address, MPU6050_RA_INT_ENABLE, 6, 1, 0x01);
+    //MPU6050_WriteBits(address, MPU6050_RA_INT_ENABLE, MPU6050_INTERRUPT_MOT_BIT, 1, 1);
 }
 
 void RCC_Configuration(void) {
@@ -78,76 +81,17 @@ void EXTI_Configuration(void) {
 }
 
 void NVIC_Configuration(void) {
-    // NVIC 설정
-    NVIC_InitTypeDef NVIC_InitStructure;
-
-    // MPU6050_1의 INT 핀 설정
-    NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQHandler;
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x00;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x00;
-    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-    NVIC_Init(&NVIC_InitStructure);
-
-    // MPU6050_2의 INT 핀 설정
-    NVIC_InitStructure.NVIC_IRQChannel = EXTI1_IRQHandler;
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x00;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x00;
-    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-    NVIC_Init(&NVIC_InitStructure);
-
-    // BTN 핀 설정
-    NVIC_InitStructure.NVIC_IRQChannel = EXTI2_IRQHandler;
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x00;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x00;
-    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-    NVIC_Init(&NVIC_InitStructure);
-}
-
-void EXTI0_IRQHandler(void) {
-    OS_IntEnter();
-
-    // MPU6050_1의 INT 핀 인터럽트 처리
-    if (EXTI_GetITStatus(EXTI_Line0) != RESET) {
-        
-
-        // MPU6050_1의 INT 핀 인터럽트 플래그 클리어
-        EXTI_ClearITPendingBit(EXTI_Line0);
-
-        // MPU6050_1의 INT 핀 인터럽트 처리
-        MPU6050_1_INT_Process();
-    }
-
-    OS_IntExit();
-}
-
-void EXTI1_IRQHandler(void) {
-    OS_IntEnter();
-
-    // MPU6050_2의 INT 핀 인터럽트 처리
-    if (EXTI_GetITStatus(EXTI_Line1) != RESET) {
-        
-
-        // MPU6050_2의 INT 핀 인터럽트 플래그 클리어
-        EXTI_ClearITPendingBit(EXTI_Line1);
-
-        // MPU6050_2의 INT 핀 인터럽트 처리
-        MPU6050_2_INT_Process();
-    }
-
-    OS_IntExit();
-}
-
-void EXTI2_IRQHandler(void) {
-    OS_IntEnter();
-
-    // BTN 핀 인터럽트 처리
-    if (EXTI_GetITStatus(EXTI_Line2) != RESET) {
-        // BTN 핀 인터럽트 플래그 클리어
-        EXTI_ClearITPendingBit(EXTI_Line2);
-
-        // BTN 핀 인터럽트 처리
-        BTN_INT_Process();
-    }
-
-    OS_IntExit();
+		BSP_IntInit();
+	
+		BSP_IntVectSet(BSP_INT_ID_EXTI0, EXTI0_IRQHandler);
+		BSP_IntPrioSet(BSP_INT_ID_EXTI0, 0);
+	  BSP_IntEn(BSP_INT_ID_EXTI0);
+	
+		BSP_IntVectSet(BSP_INT_ID_EXTI1, EXTI1_IRQHandler);
+		BSP_IntPrioSet(BSP_INT_ID_EXTI1, 1);
+	  BSP_IntEn(BSP_INT_ID_EXTI1);
+	
+	  BSP_IntVectSet(BSP_INT_ID_EXTI2, EXTI2_IRQHandler);
+		BSP_IntPrioSet(BSP_INT_ID_EXTI2, 2);
+	  BSP_IntEn(BSP_INT_ID_EXTI2);
 }
