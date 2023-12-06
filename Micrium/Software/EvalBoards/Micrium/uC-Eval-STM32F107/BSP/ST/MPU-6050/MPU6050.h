@@ -39,13 +39,6 @@ extern "C" {
 #include "HAL_MPU6050.h"
 #include <stdint.h>
 
-/********************************* USER CODE *********************************/
-
-#define MPU6050_1_ADDR (0x68 << 1) // MPU6050_1의 I2C 주소
-#define MPU6050_2_ADDR (0x69 << 1)// MPU6050_2의 I2C 주소
-
-/********************************* USER CODE *********************************/
-
 #define MPU6050_ADDRESS_AD0_LOW     0x68 // address pin low (GND), default for InvenSense evaluation board
 #define MPU6050_ADDRESS_AD0_HIGH    0x69 // address pin high (VCC)
 #define MPU6050_DEFAULT_ADDRESS     (MPU6050_ADDRESS_AD0_LOW<<1)
@@ -399,20 +392,20 @@ extern "C" {
 #define MPU6050_DMP_MEMORY_BANK_SIZE    256
 #define MPU6050_DMP_MEMORY_CHUNK_SIZE   16
 
-void MPU6050_Initialize(uint8_t address);
+void MPU6050_Initialize();
 bool MPU6050_TestConnection();
 
 // GYRO_CONFIG register
 uint8_t MPU6050_GetFullScaleGyroRange();
-void MPU6050_SetFullScaleGyroRange(uint8_t ADD, uint8_t range);
+void MPU6050_SetFullScaleGyroRange(uint8_t range);
 // ACCEL_CONFIG register
 uint8_t MPU6050_GetFullScaleAccelRange();
-void MPU6050_SetFullScaleAccelRange(uint8_t ADD, uint8_t range);
+void MPU6050_SetFullScaleAccelRange(uint8_t range);
 
 // PWR_MGMT_1 register
 bool MPU6050_GetSleepModeStatus();
-void MPU6050_SetSleepModeStatus(uint8_t ADD, FunctionalState NewState);
-void MPU6050_SetClockSource(uint8_t ADD, uint8_t source);
+void MPU6050_SetSleepModeStatus(FunctionalState NewState);
+void MPU6050_SetClockSource(uint8_t source);
 // WHO_AM_I register
 uint8_t MPU6050_GetDeviceID();
 

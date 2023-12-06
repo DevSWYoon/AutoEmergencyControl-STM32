@@ -37,6 +37,7 @@
 
 #include <includes.h>
 #include "USR_INIT.h"
+#include <stdint.h>
 
 
 /*
@@ -87,6 +88,8 @@ static  void  AppTaskSuddenAccel  (void *p_arg);
 OS_Q   SuddenAccelMsgQ;
 void * SuddenAccelMsgQPtrs[10];
 
+static bool flag = 1;
+
 
 /*
 *********************************************************************************************************
@@ -109,6 +112,10 @@ int  main (void)
     BSP_IntDisAll();                                            /* Disable all interrupts.                              */
 
     OSInit(&err);                                               /* Init uC/OS-III.                                      */
+	
+
+	
+	
 
 	  
 	
@@ -165,6 +172,8 @@ static  void  AppTaskStart (void *p_arg)
 
     Mem_Init();                                                 /* Initialize Memory Management Module                  */
 
+
+		
 		
 	
 #if OS_CFG_STAT_TASK_EN > 0u
@@ -177,32 +186,59 @@ static  void  AppTaskStart (void *p_arg)
     BSP_Ser_Init(115200);                                       /* Enable Serial Interface                              */
 #endif
 
-        Interrupt_configuration();                             /* Enable Interrupts  (Rcently Added)                     */
-
 		MPU6050_I2C_Init();
 		
-    MPU6050_TestConnection();
+		MPU6050_Initialize();
+		Enable_Motion_Interrupt(MPU6050_DEFAULT_ADDRESS, (uint8_t)MPU6050_Threshold);
 		
-		Initialize_MPU6050(MPU6050_1_ADDR);
-		Enable_Motion_Interrupt(MPU6050_1_ADDR, (uint8_t)MPU6050_Threshold);
+		NVIC_Configuration();
 
-	
-    
-		
+		if(MPU6050_TestConnection()) {
+			APP_TRACE_INFO(("YES"));
+		} else {
+			APP_TRACE_INFO(("NO"));
+		}
+
     APP_TRACE_INFO(("Creating Application Tasks...\n\r"));
     AppTaskCreate();                                            /* Create Application Tasks                             */
-    
+		
     APP_TRACE_INFO(("Creating Application Events...\n\r"));
     AppObjCreate();                                             /* Create Application Objects                           */
+		
+		
 	 
-   BSP_LED_Off(0);
-
+    BSP_LED_Off(0);
     while (DEF_TRUE) {                                          /* Task body, always written as an infinite loop.       */
-       BSP_LED_Toggle(0);
+        BSP_LED_Toggle(3);
 			
-        OSTimeDlyHMSM(0, 0, 0, 100,
+        OSTimeDlyHMSM(0, 0, 0, 500,
                       OS_OPT_TIME_HMSM_STRICT,
                       &err);
+			
+				uint8_t c;
+				MPU6050_ReadBit(MPU6050_DEFAULT_ADDRESS, MPU6050_RA_MOT_THR, 7, &c);
+				APP_TRACE_INFO(("%d\n\r", c));
+				MPU6050_ReadBit(MPU6050_DEFAULT_ADDRESS, MPU6050_RA_INT_STATUS, 6, &c);
+				APP_TRACE_INFO(("%d\n\r", c));
+				MPU6050_ReadBit(MPU6050_DEFAULT_ADDRESS, MPU6050_RA_MOT_DUR, 0, &c);
+				APP_TRACE_INFO(("%d\n\r", c));
+			
+			  
+			
+			s16 data[6];
+			int index;
+			
+			
+					MPU6050_GetRawAccelGyro(&data[0]);
+					
+					BSP_LED_Off(0);
+			
+					
+					for(index = 0; index < 6; ++index) {
+						APP_TRACE_INFO(("%d ", data[index]));
+					}
+				
+				APP_TRACE_INFO(("\n\r"));
     }
 }
 
@@ -223,8 +259,7 @@ static  void  AppTaskCreate (void)
 {
     OS_ERR  err;
     
-	
-    OSTaskCreate((OS_TCB     *)&AppTaskCollisionTCB,                /* Create the start task                                */
+    OSTaskCreate((OS_TCB     *)&AppTaskCollisionTCB,                
 								 (CPU_CHAR   *)"App Task Collision",
                  (OS_TASK_PTR ) AppTaskCollision,
                  (void       *) 0,
@@ -237,9 +272,8 @@ static  void  AppTaskCreate (void)
                  (void       *) 0,
                  (OS_OPT      )(OS_OPT_TASK_STK_CHK | OS_OPT_TASK_STK_CLR),
                  (OS_ERR     *)&err);
-    
-								 /*
-    OSTaskCreate((OS_TCB     *)&AppTaskSuddenAccelTCB,                /* Create the start task                                *
+								 
+    OSTaskCreate((OS_TCB     *)&AppTaskSuddenAccelTCB,                
                  (CPU_CHAR   *)"App Task Sudden Accel",
                  (OS_TASK_PTR ) AppTaskSuddenAccel,
                  (void       *) 0,
@@ -251,7 +285,7 @@ static  void  AppTaskCreate (void)
                  (OS_TICK     ) 0u,
                  (void       *) 0,
                  (OS_OPT      )(OS_OPT_TASK_STK_CHK | OS_OPT_TASK_STK_CLR),
-                 (OS_ERR     *)&err);*/
+                 (OS_ERR     *)&err);
 								 
 								 
 }
@@ -282,23 +316,28 @@ static  void  AppObjCreate (void)
 
 static void AppTaskCollision(void *p_arg) {
     OS_ERR err;
-	OS_MSG_SIZE size;
-	CPU_TS ts;
-	  int i;
+		OS_MSG_SIZE size;
+		CPU_TS ts;
+	  uint32_t i;
 
 	
     while (DEF_TRUE) {
 				BSP_LED_Off(0);
-			
+
         void *p_msg = OSTaskQPend(0, OS_OPT_PEND_BLOCKING, &size, &ts, &err);
-				for(i = 0; i < 1000000; ++i) {}
-			
 			
         if (err == OS_ERR_NONE) {
             APP_TRACE_INFO(("Collision Detected!\n\r"));
 
             BSP_LED_On(0);
-					  for(i = 0; i < 1000000; ++i) {}
+						
+						for(i = 0; i < 50; ++i) {
+							BSP_LED_Toggle(1);
+							OSTimeDlyHMSM(0, 0, 0, 100,
+                      OS_OPT_TIME_HMSM_STRICT,
+                      &err);
+						}
+						flag = 0;
         }
         
     }
@@ -331,52 +370,36 @@ static void AppTaskSuddenAccel(void *p_arg) {
     }
 }
 
-
-void EXTI0_IRQHandler(void) {
-    OSIntEnter();
-		OS_ERR err;
+void EXTI1_IRQHandler(void) {
+    OS_ERR err;
+	
 	
     // MPU6050_1? INT ? ???? ??
-    if (EXTI_GetITStatus(EXTI_Line0) != RESET) {
-			
-        OSTaskQPost((OS_TCB *)&AppTaskCollisionTCB, 0, 0, (OS_OPT)OS_OPT_POST_FIFO, (OS_ERR *)&err);
+    if (EXTI_GetITStatus(EXTI_Line1) != RESET && flag) {
+//        OSTaskQPost((OS_TCB *)&AppTaskCollisionTCB, 0, 0, (OS_OPT)OS_OPT_POST_FIFO | OS_OPT_POST_NO_SCHED, (OS_ERR *)&err);
+			  OSTaskQPost((OS_TCB *)&AppTaskCollisionTCB, 0, 0, (OS_OPT)OS_OPT_POST_FIFO, (OS_ERR *)&err);
+			  EXTI_ClearITPendingBit(EXTI_Line1);
 
         // MPU6050_1? INT ? ???? ??? ???
-        EXTI_ClearITPendingBit(EXTI_Line0);
 
         // MPU6050_1? INT ? ???? ??
     }
-
-    OSIntExit();
 }
 
-void EXTI1_IRQHandler(void) {
-    OSIntEnter();
-
-    // MPU6050_2? INT ? ???? ??
-    if (EXTI_GetITStatus(EXTI_Line1) != RESET) {
-        
-
-        // MPU6050_2? INT ? ???? ??? ???
-        EXTI_ClearITPendingBit(EXTI_Line1);
-
-        // MPU6050_2? INT ? ???? ??
-    }
-
+void EXTI4_IRQHandler(void) {
+		OS_ERR err;
 		
-    OSIntExit();
-}
+	
+    // MPU6050_1? INT ? ???? ??
+    if (EXTI_GetITStatus(EXTI_Line4) != RESET) {
+			
+//        OSTaskQPost((OS_TCB *)&AppTaskCollisionTCB, 0, 0, (OS_OPT)OS_OPT_POST_FIFO | OS_OPT_POST_NO_SCHED, (OS_ERR *)&err);
+				
+			  OSTaskQPost((OS_TCB *)&AppTaskCollisionTCB, 0, 0, (OS_OPT)OS_OPT_POST_FIFO, (OS_ERR *)&err);
+			  EXTI_ClearITPendingBit(EXTI_Line4);
 
-void EXTI2_IRQHandler(void) {
-    OSIntEnter();
+        // MPU6050_1? INT ? ???? ??? ???
 
-    // BTN ? ???? ??
-    if (EXTI_GetITStatus(EXTI_Line2) != RESET) {
-        // BTN ? ???? ??? ???
-        EXTI_ClearITPendingBit(EXTI_Line2);
-
-        // BTN ? ???? ??
+        // MPU6050_1? INT ? ???? ??
     }
-
-    OSIntExit();
 }

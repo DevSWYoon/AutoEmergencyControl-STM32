@@ -259,10 +259,9 @@ void  BSP_Ser_Printf (CPU_CHAR  *format, ...)
 {
     CPU_CHAR  buf_str[BSP_SER_PRINTF_STR_BUF_SIZE + 1u];
     va_list   v_args;
-
-
+	
     va_start(v_args, format);
-   (void)vsnprintf((char       *)&buf_str[0],
+  	(void)vsnprintf((char       *)&buf_str[0],
                    (size_t      ) sizeof(buf_str),
                    (char const *) format,
                                   v_args);
@@ -518,7 +517,7 @@ void  BSP_Ser_WrStr (CPU_CHAR  *p_str)
     if (err != DEF_OK ) {
         return;
     }
-
+		
     while ((*p_str) != (CPU_CHAR )0) {
         if (*p_str == ASCII_CHAR_LINE_FEED) {
             BSP_Ser_WrByteUnlocked(ASCII_CHAR_CARRIAGE_RETURN);
@@ -528,7 +527,7 @@ void  BSP_Ser_WrStr (CPU_CHAR  *p_str)
             BSP_Ser_WrByteUnlocked(*p_str++);
         }
     }
-
+		 
     BSP_OS_SemPost(&BSP_SerLock);                               /* Release access to the serial interface             */
 }
 

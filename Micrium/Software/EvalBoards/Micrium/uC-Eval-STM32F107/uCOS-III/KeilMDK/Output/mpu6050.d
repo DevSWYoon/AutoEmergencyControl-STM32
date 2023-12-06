@@ -27,4 +27,6 @@
   ..\..\BSP\ST\STM32\inc\stm32f10x_tim.h \
   ..\..\BSP\ST\STM32\inc\stm32f10x_usart.h \
   ..\..\BSP\ST\STM32\inc\stm32f10x_wwdg.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  ..\..\..\..\..\uC-CPU\ARM-Cortex-M3\RealView\cpu.h \
+  ..\..\..\..\..\uC-CPU\cpu_def.h ..\..\uCOS-III\cpu_cfg.h

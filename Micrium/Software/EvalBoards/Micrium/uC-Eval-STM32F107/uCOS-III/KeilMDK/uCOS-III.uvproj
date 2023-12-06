@@ -724,14 +724,14 @@
               <FilePath>..\..\..\..\..\uCOS-III\Source\os_tmr.c</FilePath>
             </File>
             <File>
-              <FileName>os_type.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\..\..\..\uCOS-III\Source\os_type.h</FilePath>
-            </File>
-            <File>
               <FileName>os_var.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\uCOS-III\Source\os_var.c</FilePath>
+            </File>
+            <File>
+              <FileName>os_type.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\..\..\..\uCOS-III\Source\os_type.h</FilePath>
             </File>
             <File>
               <FileName>os_dbg.c</FileName>
@@ -889,14 +889,14 @@
               <FilePath>..\..\BSP\ST\STM32\inc\stm32f10x_wwdg.h</FilePath>
             </File>
             <File>
-              <FileName>stm32f10x_adc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\BSP\ST\STM32\src\stm32f10x_adc.c</FilePath>
-            </File>
-            <File>
               <FileName>stm32f10x_bkp.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\BSP\ST\STM32\src\stm32f10x_bkp.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\BSP\ST\STM32\src\stm32f10x_adc.c</FilePath>
             </File>
             <File>
               <FileName>stm32f10x_can.c</FileName>
@@ -1009,6 +1009,11 @@
               <FilePath>..\..\BSP\ST\MPU-6050\HAL_MPU6050.h</FilePath>
             </File>
             <File>
+              <FileName>MPU6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\BSP\ST\MPU-6050\MPU6050.c</FilePath>
+            </File>
+            <File>
               <FileName>MPU6050.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\BSP\ST\MPU-6050\MPU6050.h</FilePath>
@@ -1017,11 +1022,6 @@
               <FileName>USR_INIT.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\BSP\ST\MPU-6050\USR_INIT.h</FilePath>
-            </File>
-            <File>
-              <FileName>MPU6050.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\BSP\ST\MPU-6050\MPU6050.c</FilePath>
             </File>
             <File>
               <FileName>USR_INIT.c</FileName>
