@@ -2,7 +2,7 @@
 *********************************************************************************************************
 *                                              EXAMPLE CODE
 *
-*                           (c) Copyright 2009-2013; Micrium, Inc.; Weston, FL
+*                          (c) Copyright 2003-2013; Micrium, Inc.; Weston, FL
 *
 *               All rights reserved.  Protected by international copyright laws.
 *               Knowledge of the source code may NOT be used to develop a similar product.
@@ -13,7 +13,8 @@
 
 /*
 *********************************************************************************************************
-*                                      APPLICATION CONFIGURATION
+*
+*                                           MASTER INCLUDES
 *
 *                                     ST Microelectronics STM32
 *                                              on the
@@ -21,84 +22,76 @@
 *                                     Micrium uC-Eval-STM32F107
 *                                         Evaluation Board
 *
-* Filename      : app_cfg.h
+* Filename      : includes.h
 * Version       : V1.00
-* Programmer(s) : JJL
-*                 EHS
+* Programmer(s) : EHS
 *                 DC
 *********************************************************************************************************
 */
 
-#ifndef  __APP_CFG_H__
-#define  __APP_CFG_H__
-
-/*
-*********************************************************************************************************
-*                                                 INCLUDE
-*********************************************************************************************************
-*/
-
-#include "os.h"
-
-/*
-*********************************************************************************************************
-*                                       MODULE ENABLE / DISABLE
-*********************************************************************************************************
-*/
-
-#define  APP_CFG_SERIAL_EN                          DEF_ENABLED
-
-/*
-*********************************************************************************************************
-*                                            TASK PRIORITIES
-*********************************************************************************************************
-*/
-
-#define  APP_TASK_START_PRIO                        20
-#define  APP_TASK_COLLISION_PRIO                    15
-#define  APP_TASK_SUDDEN_ACCEL_PRIO                 16
-#define  APP_TASK_PRINT_DATA_PRIO                   19
+#ifndef  INCLUDES_PRESENT
+#define  INCLUDES_PRESENT
 
 
 /*
 *********************************************************************************************************
-*                                            TASK STACK SIZES
-*                             Size of the task stacks (# of OS_STK entries)
+*                                         STANDARD LIBRARIES
 *********************************************************************************************************
 */
 
-#define  APP_TASK_START_STK_SIZE                    128
-#define  APP_TASK_COLLISION_STK_SIZE                128
-#define  APP_TASK_SUDDEN_ACCEL_STK_SIZE             128
-#define  APP_TASK_PRINT_DATA_STK_SIZE               128
-
+#include  <stdarg.h>
+#include  <stdio.h>
+#include  <stdlib.h>
+#include  <math.h>
 
 
 /*
 *********************************************************************************************************
-*                                    BSP CONFIGURATION: RS-232
+*                                              LIBRARIES
 *********************************************************************************************************
 */
 
-#define  BSP_CFG_SER_COMM_SEL             			BSP_SER_COMM_UART_02
-#define  BSP_CFG_TS_TMR_SEL                         2
+#include  <cpu.h>
+#include  <lib_def.h>
+#include  <lib_ascii.h>
+#include  <lib_math.h>
+#include  <lib_mem.h>
+#include  <lib_str.h>
+
 
 /*
 *********************************************************************************************************
-*                                     TRACE / DEBUG CONFIGURATION
+*                                              APP / BSP
 *********************************************************************************************************
 */
-#if 0
-#define  TRACE_LEVEL_OFF                            0
-#define  TRACE_LEVEL_INFO                           1
-#define  TRACE_LEVEL_DEBUG                          2
-#endif
 
-#define  APP_TRACE_LEVEL                            TRACE_LEVEL_INFO
-#define  APP_TRACE                                  BSP_Ser_Printf
+#include  <bsp.h>
 
-#define  APP_TRACE_INFO(x)            ((APP_TRACE_LEVEL >= TRACE_LEVEL_INFO)  ? (void)(APP_TRACE x) : (void)0)
-#define  APP_TRACE_DEBUG(x)           ((APP_TRACE_LEVEL >= TRACE_LEVEL_DEBUG) ? (void)(APP_TRACE x) : (void)0)
+
+/*
+*********************************************************************************************************
+*                                                 OS
+*********************************************************************************************************
+*/
+
+#include  <os.h>
+
+
+/*
+*********************************************************************************************************
+*                                                 ST
+*********************************************************************************************************
+*/
+
+#include  <stm32f10x_lib.h>
+
+
+/*
+*********************************************************************************************************
+*                                            INCLUDES END
+*********************************************************************************************************
+*/
 
 
 #endif
+

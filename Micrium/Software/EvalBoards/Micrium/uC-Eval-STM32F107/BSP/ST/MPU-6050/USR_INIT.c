@@ -53,6 +53,11 @@ void GPIO_Configuration(void) {
     GPIO_InitStructure.GPIO_Pin = BTN_INT_PIN;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPD;
     GPIO_Init(GPIOC, &GPIO_InitStructure);
+
+    // 단란 감지 센서의 INT 핀 설정
+    GPIO_InitStructure.GPIO_Pin = SHORTCIRCUIT_INT_PIN;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
+    GPIO_Init(GPIOC, &GPIO_InitStructure);
 }
 
 void EXTI_Configuration(void) {
@@ -73,7 +78,16 @@ void EXTI_Configuration(void) {
 
     EXTI_InitStructure.EXTI_Line = EXTI_Line4;
     EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
-    EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
+    EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising_Falling;
+    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+    EXTI_Init(&EXTI_InitStructure);
+
+    // 단락 감지 센서의 INT 핀 설정
+    GPIO_EXTILineConfig(GPIO_PortSourceGPIOC, GPIO_PinSource5);
+
+    EXTI_InitStructure.EXTI_Line = EXTI_Line5;
+    EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
+    EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;
     EXTI_InitStructure.EXTI_LineCmd = ENABLE;
     EXTI_Init(&EXTI_InitStructure);
 }
@@ -86,12 +100,15 @@ void NVIC_Configuration(void) {
     // BSP Interrupt 설정
     BSP_IntVectSet(BSP_INT_ID_EXTI1, EXTI1_IRQHandler);
     BSP_IntVectSet(BSP_INT_ID_EXTI4, EXTI4_IRQHandler);
+    BSP_IntVectSet(BSP_INT_ID_EXTI9_5, EXTI9_5_IRQHandler);
 
     // BSP Priority 설정
     BSP_IntPrioSet(BSP_INT_ID_EXTI1, 0);
-    BSP_IntPrioSet(BSP_INT_ID_EXTI4, 2);
+    BSP_IntPrioSet(BSP_INT_ID_EXTI4, 1);
+    BSP_IntPrioSet(BSP_INT_ID_EXTI9_5, 2);
 
     // BSP Interrupt Enable
     BSP_IntEn(BSP_INT_ID_EXTI1);
     BSP_IntEn(BSP_INT_ID_EXTI4);
+    BSP_IntEn(BSP_INT_ID_EXTI9_5);
 }
