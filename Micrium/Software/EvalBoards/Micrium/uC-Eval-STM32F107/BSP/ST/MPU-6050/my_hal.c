@@ -1,6 +1,3 @@
-#ifndef __MY_HAL_H
-#define __MY_HAL_H
-
 #include "stm32f10x_lib.h"
 #include "bsp.h"
 
@@ -40,7 +37,7 @@ void BuzzerTmrCallback(void *p_tmr, void *p_arg)
 void TimeoutPendingTmrCallback(void *p_tmr, void *p_arg)
 {
     APP_TRACE_INFO(("SHORT CIRCUITS DETECTED! PUSH THE BUTTON!\n"));
-    BSP_LED_Toggle(1);
+    BSP_LED_Toggle(3);
 }
 
 
@@ -62,5 +59,3 @@ void RelayCutOff(void)
 {
     GPIO_ResetBits(GPIOE, GPIO_Pin_11);
 }
-
-#endif // __MY_HAL_H

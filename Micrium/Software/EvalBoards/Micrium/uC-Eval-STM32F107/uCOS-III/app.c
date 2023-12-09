@@ -35,7 +35,7 @@
 *********************************************************************************************************
 */
 
-#include "includes.h"
+#include <includes.h>
 #include "USR_INIT.h"
 #include "my_hal.h"
 #include "Queue.h"
@@ -216,9 +216,9 @@ static  void  AppTaskStart (void *p_arg)
             
             
         
-    BSP_LED_Off(0);
+    BSP_LED_On(0);
     while (DEF_TRUE) {                                          /* Task body, always written as an infinite loop.       */
-        OSTimeDlyHMSM(0, 0, 0, 500,
+        OSTimeDlyHMSM(0, 0, 0, 1000,
                       OS_OPT_TIME_HMSM_STRICT,
                       &err);
 			/*
@@ -243,14 +243,16 @@ static  void  AppTaskStart (void *p_arg)
 							&ts,
 							&err);
 											
-					if(err == OS_ERR_NONE) {
-						push(&AccelerationQ, &data[0]);
-					}
+		if(err == OS_ERR_NONE) {
+			push(&AccelerationQ, &data[0]);
+		}
 					
 		OSSemPost(&AccelDataSEM,
 					OS_OPT_POST_1,
 					&err);
-		BSP_LED_Off(0);
+
+
+		BSP_LED_Toggle(1);
     }
 }
 
@@ -272,7 +274,7 @@ static  void  AppTaskCreate (void)
     OS_ERR  err;
     
     OSTaskCreate((OS_TCB     *)&AppTaskCollisionTCB,                
-								 (CPU_CHAR   *)"App Task Collision",
+				 (CPU_CHAR   *)"App Task Collision",
                  (OS_TASK_PTR ) AppTaskCollision,
                  (void       *) 0,
                  (OS_PRIO     ) APP_TASK_COLLISION_PRIO,
@@ -387,10 +389,6 @@ static void AppTaskPrintData(void *p_arg) {
 		double last_value = 0, total_value = 0;
 		
 		while(DEF_TRUE) {
-				OSTimeDlyHMSM(0, 0, 0, 1000,
-											OS_OPT_TIME_HMSM_STRICT,
-											&err);
-		
 				OSSemPend(&AccelDataSEM,
 									0,
 									OS_OPT_PEND_BLOCKING,
@@ -418,6 +416,8 @@ static void AppTaskPrintData(void *p_arg) {
 				}
 				
 				last_value = total_value;
+
+                BSP_LED_Toggle(2);
 		}
 }
 
@@ -430,9 +430,7 @@ static void AppTaskCollision(void *p_arg) {
 
 	
     while (DEF_TRUE) {
-		BSP_LED_Off(0);
-
-        void *p_msg = OSTaskQPend(0, OS_OPT_PEND_BLOCKING, &size, &ts, &err);
+		void *p_msg = OSTaskQPend(0, OS_OPT_PEND_BLOCKING, &size, &ts, &err);
 			
         if (err == OS_ERR_NONE) {
             APP_TRACE_INFO(("Collision Detected!\n\r"));
@@ -447,8 +445,10 @@ static void AppTaskCollision(void *p_arg) {
 
             OS_TmrStop(&CollisionTmr, OS_OPT_TMR_NONE, NULL, &err);
 
-			flag = 0;
+			flag = 1;
         }
+
+        BSP_LED_On(0);
         
     }
 }
@@ -479,6 +479,8 @@ static void AppTaskSuddenAccel(void *p_arg) {
                 APP_TRACE_INFO(("Sudden Accel Detected!\n\r"));
             }
         }
+
+        BSP_LED_On(0);
     }
 }
 
@@ -489,7 +491,8 @@ void EXTI1_IRQHandler(void) {
     // MPU6050_1? INT ? ???? ??
     if (EXTI_GetITStatus(EXTI_Line1) != RESET) {
         if(flag) {
-			  OSTaskQPost((OS_TCB *)&AppTaskCollisionTCB, 0, 0, (OS_OPT)OS_OPT_POST_FIFO, (OS_ERR *)&err);
+            flag = 0;
+			OSTaskQPost((OS_TCB *)&AppTaskCollisionTCB, 0, 0, (OS_OPT)OS_OPT_POST_FIFO, (OS_ERR *)&err);
         }
 
 
@@ -502,7 +505,7 @@ void EXTI4_IRQHandler(void) {
 		
 	
     if (EXTI_GetITStatus(EXTI_Line4) != RESET) {
-        if(BSP_PB_GetStatus(BTN_INT_PIN) == RESET) {
+        if(GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_4) == RESET) {
             OSQPost(&SuddenAccelMsgQ, (void *)0, 0, OS_OPT_POST_FIFO, &err);
             BSP_IntDis(BSP_INT_ID_EXTI9_5);
         } else  {
@@ -513,7 +516,7 @@ void EXTI4_IRQHandler(void) {
     }
 }
 
-void EXTI9_5IRQHandler(void) {
+void EXTI9_5_IRQHandler(void) {
     OS_ERR err;
     uint8_t c;
     
