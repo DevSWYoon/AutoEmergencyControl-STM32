@@ -59,3 +59,8 @@ void RelayCutOff(void)
 {
     GPIO_ResetBits(GPIOE, GPIO_Pin_11);
 }
+
+void RelayTurnOn(void)
+{
+    GPIO_SetBits(GPIOE, GPIO_Pin_11);
+}

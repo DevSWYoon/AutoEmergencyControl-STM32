@@ -457,7 +457,6 @@ static void AppTaskSuddenAccel(void *p_arg) {
     OS_ERR err, err2;
 	OS_MSG_SIZE size;
 	CPU_TS ts;
-
     uint32_t i;
     
     while (DEF_TRUE) {
@@ -477,6 +476,7 @@ static void AppTaskSuddenAccel(void *p_arg) {
                 APP_TRACE_INFO(("Sudden Accel Aborted!\n\r"));
             } else if (err == OS_ERR_TIMEOUT) {
                 APP_TRACE_INFO(("Sudden Accel Detected!\n\r"));
+                RelayCutOff();
             }
         }
 
@@ -487,8 +487,6 @@ static void AppTaskSuddenAccel(void *p_arg) {
 void EXTI1_IRQHandler(void) {
     OS_ERR err;
 	
-	
-    // MPU6050_1? INT ? ???? ??
     if (EXTI_GetITStatus(EXTI_Line1) != RESET) {
         if(flag) {
             flag = 0;

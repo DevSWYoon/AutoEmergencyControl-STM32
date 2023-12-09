@@ -15,4 +15,6 @@ void RelayInit(void);
 
 void RelayCutOff(void);
 
+void RelayTurnOn(void);
+
 #endif // __MY_HAL_H
