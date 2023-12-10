@@ -15,6 +15,18 @@ void BuzzerInit(void)
     GPIO_Init(GPIOA, &GPIO_InitStructure);
 }
 
+void BuzzerDisInit(void)
+{
+    // Initialize GPIOA0's buzzer
+    GPIO_InitTypeDef GPIO_InitStructure;
+
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+}
+
 void BuzzerToggle(void)
 {
     if(GPIO_ReadOutputDataBit(GPIOA, GPIO_Pin_3) == 0)
@@ -28,17 +40,6 @@ void BuzzerToggle(void)
 }
 
 
-void BuzzerTmrCallback(void *p_tmr, void *p_arg)
-{
-   BuzzerToggle();
-   BSP_LED_Toggle(0);
-}
-
-void TimeoutPendingTmrCallback(void *p_tmr, void *p_arg)
-{
-    APP_TRACE_INFO(("SHORT CIRCUITS DETECTED! PUSH THE BUTTON!\n"));
-    BSP_LED_Toggle(3);
-}
 
 
 void RelayInit(void)
@@ -57,10 +58,16 @@ void RelayInit(void)
 
 void RelayCutOff(void)
 {
-    GPIO_ResetBits(GPIOE, GPIO_Pin_11);
+    GPIO_SetBits(GPIOE, GPIO_Pin_11);
 }
 
 void RelayTurnOn(void)
 {
-    GPIO_SetBits(GPIOE, GPIO_Pin_11);
+    GPIO_ResetBits(GPIOE, GPIO_Pin_11);
+}
+
+bool GetRelayStat(void)
+{
+	return GPIO_ReadOutputDataBit(GPIOE, GPIO_Pin_11);
+	
 }

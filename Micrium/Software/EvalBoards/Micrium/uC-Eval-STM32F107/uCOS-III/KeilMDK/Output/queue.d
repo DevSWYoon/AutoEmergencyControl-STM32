@@ -1,6 +1,9 @@
-./output/app.o: ..\app.c ..\..\uCOS-III\includes.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h \
+./output/queue.o: ..\..\BSP\ST\MPU-6050\Queue.c \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
+  ..\..\uCOS-III\includes.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h \
   ..\..\..\..\..\uC-CPU\ARM-Cortex-M3\RealView\cpu.h \
@@ -40,8 +43,4 @@
   ..\..\..\..\..\uCOS-III\Source\os_type.h \
   ..\..\..\..\..\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView\os_cpu.h \
   ..\..\BSP\OS\uCOS-III\bsp_os.h ..\..\BSP\bsp_ser.h ..\..\BSP\bsp_i2c.h \
-  ..\..\BSP\bsp_stlm75.h ..\..\BSP\ST\MPU-6050\USR_INIT.h \
-  ..\..\BSP\ST\MPU-6050\MPU6050.h ..\..\BSP\ST\MPU-6050\HAL_MPU6050.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
-  ..\..\BSP\ST\MPU-6050\my_hal.h ..\..\BSP\ST\MPU-6050\Queue.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h
+  ..\..\BSP\bsp_stlm75.h ..\..\BSP\ST\MPU-6050\Queue.h

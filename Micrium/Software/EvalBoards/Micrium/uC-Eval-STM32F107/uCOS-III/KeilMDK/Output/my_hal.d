@@ -1,14 +1,4 @@
-./output/app.o: ..\app.c ..\..\uCOS-III\includes.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h \
-  ..\..\..\..\..\uC-CPU\ARM-Cortex-M3\RealView\cpu.h \
-  ..\..\..\..\..\uC-CPU\cpu_def.h ..\..\uCOS-III\cpu_cfg.h \
-  ..\..\..\..\..\uC-LIB\lib_def.h ..\..\..\..\..\uC-LIB\lib_ascii.h \
-  ..\..\..\..\..\uC-LIB\lib_math.h ..\..\..\..\..\uC-CPU\cpu_core.h \
-  ..\..\..\..\..\uC-LIB\lib_mem.h ..\..\uCOS-III\lib_cfg.h \
-  ..\..\..\..\..\uC-LIB\lib_str.h ..\..\BSP\bsp.h \
+./output/my_hal.o: ..\..\BSP\ST\MPU-6050\my_hal.c \
   ..\..\BSP\ST\STM32\inc\stm32f10x_lib.h \
   ..\..\BSP\ST\STM32\inc\stm32f10x_map.h ..\..\uCOS-III\stm32f10x_conf.h \
   ..\..\BSP\ST\STM32\inc\stm32f10x_type.h \
@@ -35,13 +25,16 @@
   ..\..\BSP\ST\STM32\inc\stm32f10x_systick.h \
   ..\..\BSP\ST\STM32\inc\stm32f10x_tim.h \
   ..\..\BSP\ST\STM32\inc\stm32f10x_usart.h \
-  ..\..\BSP\ST\STM32\inc\stm32f10x_wwdg.h ..\..\uCOS-III\app_cfg.h \
-  ..\..\..\..\..\uCOS-III\Source\os.h ..\..\uCOS-III\os_cfg.h \
-  ..\..\..\..\..\uCOS-III\Source\os_type.h \
+  ..\..\BSP\ST\STM32\inc\stm32f10x_wwdg.h ..\..\BSP\bsp.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
+  ..\..\..\..\..\uC-CPU\ARM-Cortex-M3\RealView\cpu.h \
+  ..\..\..\..\..\uC-CPU\cpu_def.h ..\..\uCOS-III\cpu_cfg.h \
+  ..\..\..\..\..\uC-CPU\cpu_core.h ..\..\..\..\..\uC-LIB\lib_def.h \
+  ..\..\..\..\..\uC-LIB\lib_mem.h ..\..\uCOS-III\lib_cfg.h \
+  ..\..\..\..\..\uC-LIB\lib_str.h ..\..\..\..\..\uC-LIB\lib_ascii.h \
+  ..\..\uCOS-III\app_cfg.h ..\..\..\..\..\uCOS-III\Source\os.h \
+  ..\..\uCOS-III\os_cfg.h ..\..\..\..\..\uCOS-III\Source\os_type.h \
   ..\..\..\..\..\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView\os_cpu.h \
   ..\..\BSP\OS\uCOS-III\bsp_os.h ..\..\BSP\bsp_ser.h ..\..\BSP\bsp_i2c.h \
-  ..\..\BSP\bsp_stlm75.h ..\..\BSP\ST\MPU-6050\USR_INIT.h \
-  ..\..\BSP\ST\MPU-6050\MPU6050.h ..\..\BSP\ST\MPU-6050\HAL_MPU6050.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
-  ..\..\BSP\ST\MPU-6050\my_hal.h ..\..\BSP\ST\MPU-6050\Queue.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h
+  ..\..\BSP\bsp_stlm75.h

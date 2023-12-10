@@ -1028,6 +1028,26 @@
               <FileType>1</FileType>
               <FilePath>..\..\BSP\ST\MPU-6050\USR_INIT.c</FilePath>
             </File>
+            <File>
+              <FileName>my_hal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\BSP\ST\MPU-6050\my_hal.c</FilePath>
+            </File>
+            <File>
+              <FileName>Queue.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\BSP\ST\MPU-6050\Queue.c</FilePath>
+            </File>
+            <File>
+              <FileName>my_hal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\BSP\ST\MPU-6050\my_hal.h</FilePath>
+            </File>
+            <File>
+              <FileName>Queue.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\BSP\ST\MPU-6050\Queue.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

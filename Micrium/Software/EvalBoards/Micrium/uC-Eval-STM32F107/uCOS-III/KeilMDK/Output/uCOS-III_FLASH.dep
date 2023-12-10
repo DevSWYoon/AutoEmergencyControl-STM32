@@ -1,6 +1,6 @@
 Dependencies for Project 'uCOS-III', Target 'FLASH': (DO NOT MODIFY !)
 CompilerVersion: 6190000::V6.19::ARMCLANG
-F (..\app.c)(0x657035EC)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -I ../../uCOS-III -I ../../BSP -I ../../BSP/OS/uCOS-III -I ../../BSP/ST/STM32/inc -I ../../BSP/KeilMDK -I ../../../../../uC-CPU -I ../../../../../uC-CPU/ARM-Cortex-M3/RealView -I ../../../../../uC-LIB -I ../../../../../uC-LIB/Ports/ARM-Cortex-M3/RealView -I ../../../../../uCOS-III/Source -I ../../../../../uCOS-III/Ports/ARM-Cortex-M3/Generic/RealView -I ../../BSP/ST/MPU-6050-IC:/Keil_v5/ARM/RV31/INC-IC:/Keil_v5/ARM/CMSIS/Include-IC:/Keil_v5/ARM/INC/ST/STM32F10x-D__UVISION_VERSION="538" -DUSE_STDPERIPH_DRIVER-o ./output/app.o -MD)
+F (..\app.c)(0x65758ECE)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -I ../../uCOS-III -I ../../BSP -I ../../BSP/OS/uCOS-III -I ../../BSP/ST/STM32/inc -I ../../BSP/KeilMDK -I ../../../../../uC-CPU -I ../../../../../uC-CPU/ARM-Cortex-M3/RealView -I ../../../../../uC-LIB -I ../../../../../uC-LIB/Ports/ARM-Cortex-M3/RealView -I ../../../../../uCOS-III/Source -I ../../../../../uCOS-III/Ports/ARM-Cortex-M3/Generic/RealView -I ../../BSP/ST/MPU-6050-IC:/Keil_v5/ARM/RV31/INC-IC:/Keil_v5/ARM/CMSIS/Include-IC:/Keil_v5/ARM/INC/ST/STM32F10x-D__UVISION_VERSION="538" -DUSE_STDPERIPH_DRIVER-o ./output/app.o -MD)
 I (..\..\uCOS-III\includes.h)(0x650D3EB0)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63883AF8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63883AF8)
@@ -32,7 +32,7 @@ I (..\..\BSP\ST\STM32\inc\stm32f10x_dma.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_exti.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_flash.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_fsmc.h)(0x650D3EB0)
-I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x65757335)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_i2c.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_iwdg.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_nvic.h)(0x650D3EB0)
@@ -45,7 +45,7 @@ I (..\..\BSP\ST\STM32\inc\stm32f10x_systick.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_tim.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_usart.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_wwdg.h)(0x650D3EB0)
-I (..\..\uCOS-III\app_cfg.h)(0x656B183B)
+I (..\..\uCOS-III\app_cfg.h)(0x6575689C)
 I (..\..\..\..\..\uCOS-III\Source\os.h)(0x650D3EB3)
 I (..\..\uCOS-III\os_cfg.h)(0x650D3EB0)
 I (..\..\..\..\..\uCOS-III\Source\os_type.h)(0x650D3EB3)
@@ -54,11 +54,14 @@ I (..\..\BSP\OS\uCOS-III\bsp_os.h)(0x650D3EAF)
 I (..\..\BSP\bsp_ser.h)(0x650D3EAF)
 I (..\..\BSP\bsp_i2c.h)(0x650D3EAF)
 I (..\..\BSP\bsp_stlm75.h)(0x650D3EAF)
-I (..\..\BSP\ST\MPU-6050\USR_INIT.h)(0x657032D5)
+I (..\..\BSP\ST\MPU-6050\USR_INIT.h)(0x65752992)
 I (..\..\BSP\ST\MPU-6050\MPU6050.h)(0x65702404)
 I (..\..\BSP\ST\MPU-6050\HAL_MPU6050.h)(0x656EDE8A)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63883AF8)
-F (..\app_cfg.h)(0x656B183B)()
+I (..\..\BSP\ST\MPU-6050\my_hal.h)(0x65757A74)
+I (..\..\BSP\ST\MPU-6050\Queue.h)(0x65751831)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63883AF8)
+F (..\app_cfg.h)(0x6575689C)()
 F (..\cpu_cfg.h)(0x650D3EB0)()
 F (..\includes.h)(0x650D3EB0)()
 F (..\lib_cfg.h)(0x650D3EB0)()
@@ -109,7 +112,7 @@ I (..\..\BSP\ST\STM32\inc\stm32f10x_dma.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_exti.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_flash.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_fsmc.h)(0x650D3EB0)
-I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x65757335)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_i2c.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_iwdg.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_nvic.h)(0x650D3EB0)
@@ -122,7 +125,7 @@ I (..\..\BSP\ST\STM32\inc\stm32f10x_systick.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_tim.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_usart.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_wwdg.h)(0x650D3EB0)
-I (..\..\uCOS-III\app_cfg.h)(0x656B183B)
+I (..\..\uCOS-III\app_cfg.h)(0x6575689C)
 I (..\..\..\..\..\uCOS-III\Source\os.h)(0x650D3EB3)
 I (..\..\uCOS-III\os_cfg.h)(0x650D3EB0)
 I (..\..\..\..\..\uCOS-III\Source\os_type.h)(0x650D3EB3)
@@ -160,7 +163,7 @@ I (..\..\BSP\ST\STM32\inc\stm32f10x_dma.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_exti.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_flash.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_fsmc.h)(0x650D3EB0)
-I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x65757335)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_i2c.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_iwdg.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_nvic.h)(0x650D3EB0)
@@ -173,7 +176,7 @@ I (..\..\BSP\ST\STM32\inc\stm32f10x_systick.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_tim.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_usart.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_wwdg.h)(0x650D3EB0)
-I (..\..\uCOS-III\app_cfg.h)(0x656B183B)
+I (..\..\uCOS-III\app_cfg.h)(0x6575689C)
 I (..\..\..\..\..\uCOS-III\Source\os.h)(0x650D3EB3)
 I (..\..\uCOS-III\os_cfg.h)(0x650D3EB0)
 I (..\..\..\..\..\uCOS-III\Source\os_type.h)(0x650D3EB3)
@@ -211,7 +214,7 @@ I (..\..\BSP\ST\STM32\inc\stm32f10x_dma.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_exti.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_flash.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_fsmc.h)(0x650D3EB0)
-I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x65757335)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_i2c.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_iwdg.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_nvic.h)(0x650D3EB0)
@@ -224,7 +227,7 @@ I (..\..\BSP\ST\STM32\inc\stm32f10x_systick.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_tim.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_usart.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_wwdg.h)(0x650D3EB0)
-I (..\..\uCOS-III\app_cfg.h)(0x656B183B)
+I (..\..\uCOS-III\app_cfg.h)(0x6575689C)
 I (..\..\..\..\..\uCOS-III\Source\os.h)(0x650D3EB3)
 I (..\..\uCOS-III\os_cfg.h)(0x650D3EB0)
 I (..\..\..\..\..\uCOS-III\Source\os_type.h)(0x650D3EB3)
@@ -261,7 +264,7 @@ I (..\..\BSP\ST\STM32\inc\stm32f10x_dma.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_exti.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_flash.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_fsmc.h)(0x650D3EB0)
-I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x65757335)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_i2c.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_iwdg.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_nvic.h)(0x650D3EB0)
@@ -274,7 +277,7 @@ I (..\..\BSP\ST\STM32\inc\stm32f10x_systick.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_tim.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_usart.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_wwdg.h)(0x650D3EB0)
-I (..\..\uCOS-III\app_cfg.h)(0x656B183B)
+I (..\..\uCOS-III\app_cfg.h)(0x6575689C)
 I (..\..\..\..\..\uCOS-III\Source\os.h)(0x650D3EB3)
 I (..\..\uCOS-III\os_cfg.h)(0x650D3EB0)
 I (..\..\..\..\..\uCOS-III\Source\os_type.h)(0x650D3EB3)
@@ -311,7 +314,7 @@ I (..\..\BSP\ST\STM32\inc\stm32f10x_dma.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_exti.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_flash.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_fsmc.h)(0x650D3EB0)
-I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x65757335)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_i2c.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_iwdg.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_nvic.h)(0x650D3EB0)
@@ -324,7 +327,7 @@ I (..\..\BSP\ST\STM32\inc\stm32f10x_systick.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_tim.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_usart.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_wwdg.h)(0x650D3EB0)
-I (..\..\uCOS-III\app_cfg.h)(0x656B183B)
+I (..\..\uCOS-III\app_cfg.h)(0x6575689C)
 I (..\..\..\..\..\uCOS-III\Source\os.h)(0x650D3EB3)
 I (..\..\uCOS-III\os_cfg.h)(0x650D3EB0)
 I (..\..\..\..\..\uCOS-III\Source\os_type.h)(0x650D3EB3)
@@ -362,7 +365,7 @@ I (..\..\BSP\ST\STM32\inc\stm32f10x_dma.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_exti.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_flash.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_fsmc.h)(0x650D3EB0)
-I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x65757335)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_i2c.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_iwdg.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_nvic.h)(0x650D3EB0)
@@ -375,7 +378,7 @@ I (..\..\BSP\ST\STM32\inc\stm32f10x_systick.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_tim.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_usart.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_wwdg.h)(0x650D3EB0)
-I (..\..\uCOS-III\app_cfg.h)(0x656B183B)
+I (..\..\uCOS-III\app_cfg.h)(0x6575689C)
 I (..\..\..\..\..\uCOS-III\Source\os.h)(0x650D3EB3)
 I (..\..\uCOS-III\os_cfg.h)(0x650D3EB0)
 I (..\..\..\..\..\uCOS-III\Source\os_type.h)(0x650D3EB3)
@@ -413,7 +416,7 @@ I (..\..\BSP\ST\STM32\inc\stm32f10x_dma.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_exti.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_flash.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_fsmc.h)(0x650D3EB0)
-I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x65757335)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_i2c.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_iwdg.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_nvic.h)(0x650D3EB0)
@@ -426,7 +429,7 @@ I (..\..\BSP\ST\STM32\inc\stm32f10x_systick.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_tim.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_usart.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_wwdg.h)(0x650D3EB0)
-I (..\..\uCOS-III\app_cfg.h)(0x656B183B)
+I (..\..\uCOS-III\app_cfg.h)(0x6575689C)
 I (..\..\..\..\..\uCOS-III\Source\os.h)(0x650D3EB3)
 I (..\..\uCOS-III\os_cfg.h)(0x650D3EB0)
 I (..\..\..\..\..\uCOS-III\Source\os_type.h)(0x650D3EB3)
@@ -714,7 +717,7 @@ I (..\..\..\..\..\uC-LIB\lib_str.h)(0x650D3EB3)
 I (..\..\..\..\..\uC-LIB\lib_ascii.h)(0x650D3EB3)
 I (..\..\..\..\..\uCOS-III\Source\os_type.h)(0x650D3EB3)
 I (..\..\..\..\..\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView\os_cpu.h)(0x650D3EB3)
-F (..\..\..\..\..\uCOS-III\Source\os_tmr.c)(0x650D3EB3)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -I ../../uCOS-III -I ../../BSP -I ../../BSP/OS/uCOS-III -I ../../BSP/ST/STM32/inc -I ../../BSP/KeilMDK -I ../../../../../uC-CPU -I ../../../../../uC-CPU/ARM-Cortex-M3/RealView -I ../../../../../uC-LIB -I ../../../../../uC-LIB/Ports/ARM-Cortex-M3/RealView -I ../../../../../uCOS-III/Source -I ../../../../../uCOS-III/Ports/ARM-Cortex-M3/Generic/RealView -I ../../BSP/ST/MPU-6050-IC:/Keil_v5/ARM/RV31/INC-IC:/Keil_v5/ARM/CMSIS/Include-IC:/Keil_v5/ARM/INC/ST/STM32F10x-D__UVISION_VERSION="538" -DUSE_STDPERIPH_DRIVER-o ./output/os_tmr.o -MD)
+F (..\..\..\..\..\uCOS-III\Source\os_tmr.c)(0x657559E0)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -I ../../uCOS-III -I ../../BSP -I ../../BSP/OS/uCOS-III -I ../../BSP/ST/STM32/inc -I ../../BSP/KeilMDK -I ../../../../../uC-CPU -I ../../../../../uC-CPU/ARM-Cortex-M3/RealView -I ../../../../../uC-LIB -I ../../../../../uC-LIB/Ports/ARM-Cortex-M3/RealView -I ../../../../../uCOS-III/Source -I ../../../../../uCOS-III/Ports/ARM-Cortex-M3/Generic/RealView -I ../../BSP/ST/MPU-6050-IC:/Keil_v5/ARM/RV31/INC-IC:/Keil_v5/ARM/CMSIS/Include-IC:/Keil_v5/ARM/INC/ST/STM32F10x-D__UVISION_VERSION="538" -DUSE_STDPERIPH_DRIVER-o ./output/os_tmr.o -MD)
 I (..\..\..\..\..\uCOS-III\Source\os.h)(0x650D3EB3)
 I (..\..\uCOS-III\os_cfg.h)(0x650D3EB0)
 I (..\..\..\..\..\uC-CPU\ARM-Cortex-M3\RealView\cpu.h)(0x650D3EB2)
@@ -784,7 +787,7 @@ F (..\..\BSP\ST\STM32\inc\stm32f10x_dma.h)(0x650D3EB0)()
 F (..\..\BSP\ST\STM32\inc\stm32f10x_exti.h)(0x650D3EB0)()
 F (..\..\BSP\ST\STM32\inc\stm32f10x_flash.h)(0x650D3EB0)()
 F (..\..\BSP\ST\STM32\inc\stm32f10x_fsmc.h)(0x650D3EB0)()
-F (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x650D3EB0)()
+F (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x65757335)()
 F (..\..\BSP\ST\STM32\inc\stm32f10x_i2c.h)(0x650D3EB0)()
 F (..\..\BSP\ST\STM32\inc\stm32f10x_iwdg.h)(0x650D3EB0)()
 F (..\..\BSP\ST\STM32\inc\stm32f10x_lib.h)(0x650D3EB0)()
@@ -865,7 +868,7 @@ I (..\..\BSP\ST\STM32\inc\stm32f10x_type.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\cortexm3_macro.h)(0x650D3EAF)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_rcc.h)(0x650D3EB0)
 F (..\..\BSP\ST\STM32\src\stm32f10x_gpio.c)(0x650D3EB0)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -I ../../uCOS-III -I ../../BSP -I ../../BSP/OS/uCOS-III -I ../../BSP/ST/STM32/inc -I ../../BSP/KeilMDK -I ../../../../../uC-CPU -I ../../../../../uC-CPU/ARM-Cortex-M3/RealView -I ../../../../../uC-LIB -I ../../../../../uC-LIB/Ports/ARM-Cortex-M3/RealView -I ../../../../../uCOS-III/Source -I ../../../../../uCOS-III/Ports/ARM-Cortex-M3/Generic/RealView -I ../../BSP/ST/MPU-6050-IC:/Keil_v5/ARM/RV31/INC-IC:/Keil_v5/ARM/CMSIS/Include-IC:/Keil_v5/ARM/INC/ST/STM32F10x-D__UVISION_VERSION="538" -DUSE_STDPERIPH_DRIVER-o ./output/stm32f10x_gpio.o -MD)
-I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x65757335)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_map.h)(0x650D3EB0)
 I (..\..\uCOS-III\stm32f10x_conf.h)(0x650D3EB1)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_type.h)(0x650D3EB0)
@@ -900,7 +903,7 @@ I (..\..\BSP\ST\STM32\inc\stm32f10x_dma.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_exti.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_flash.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_fsmc.h)(0x650D3EB0)
-I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x65757335)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_i2c.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_iwdg.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_nvic.h)(0x650D3EB0)
@@ -985,7 +988,7 @@ I (..\..\BSP\ST\STM32\inc\stm32f10x_dma.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_exti.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_flash.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_fsmc.h)(0x650D3EB0)
-I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x65757335)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_i2c.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_iwdg.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_nvic.h)(0x650D3EB0)
@@ -1003,9 +1006,9 @@ I (..\..\..\..\..\uC-CPU\ARM-Cortex-M3\RealView\cpu.h)(0x650D3EB2)
 I (..\..\..\..\..\uC-CPU\cpu_def.h)(0x650D3EB2)
 I (..\..\uCOS-III\cpu_cfg.h)(0x650D3EB0)
 F (..\..\BSP\ST\MPU-6050\MPU6050.h)(0x65702404)()
-F (..\..\BSP\ST\MPU-6050\USR_INIT.h)(0x657032D5)()
-F (..\..\BSP\ST\MPU-6050\USR_INIT.c)(0x657034AE)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -I ../../uCOS-III -I ../../BSP -I ../../BSP/OS/uCOS-III -I ../../BSP/ST/STM32/inc -I ../../BSP/KeilMDK -I ../../../../../uC-CPU -I ../../../../../uC-CPU/ARM-Cortex-M3/RealView -I ../../../../../uC-LIB -I ../../../../../uC-LIB/Ports/ARM-Cortex-M3/RealView -I ../../../../../uCOS-III/Source -I ../../../../../uCOS-III/Ports/ARM-Cortex-M3/Generic/RealView -I ../../BSP/ST/MPU-6050-IC:/Keil_v5/ARM/RV31/INC-IC:/Keil_v5/ARM/CMSIS/Include-IC:/Keil_v5/ARM/INC/ST/STM32F10x-D__UVISION_VERSION="538" -DUSE_STDPERIPH_DRIVER-o ./output/usr_init.o -MD)
-I (..\..\BSP\ST\MPU-6050\USR_INIT.h)(0x657032D5)
+F (..\..\BSP\ST\MPU-6050\USR_INIT.h)(0x65752992)()
+F (..\..\BSP\ST\MPU-6050\USR_INIT.c)(0x65753728)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -I ../../uCOS-III -I ../../BSP -I ../../BSP/OS/uCOS-III -I ../../BSP/ST/STM32/inc -I ../../BSP/KeilMDK -I ../../../../../uC-CPU -I ../../../../../uC-CPU/ARM-Cortex-M3/RealView -I ../../../../../uC-LIB -I ../../../../../uC-LIB/Ports/ARM-Cortex-M3/RealView -I ../../../../../uCOS-III/Source -I ../../../../../uCOS-III/Ports/ARM-Cortex-M3/Generic/RealView -I ../../BSP/ST/MPU-6050-IC:/Keil_v5/ARM/RV31/INC-IC:/Keil_v5/ARM/CMSIS/Include-IC:/Keil_v5/ARM/INC/ST/STM32F10x-D__UVISION_VERSION="538" -DUSE_STDPERIPH_DRIVER-o ./output/usr_init.o -MD)
+I (..\..\BSP\ST\MPU-6050\USR_INIT.h)(0x65752992)
 I (..\..\BSP\ST\MPU-6050\MPU6050.h)(0x65702404)
 I (..\..\BSP\ST\MPU-6050\HAL_MPU6050.h)(0x656EDE8A)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_lib.h)(0x650D3EB0)
@@ -1023,7 +1026,7 @@ I (..\..\BSP\ST\STM32\inc\stm32f10x_dma.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_exti.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_flash.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_fsmc.h)(0x650D3EB0)
-I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x65757335)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_i2c.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_iwdg.h)(0x650D3EB0)
 I (..\..\BSP\ST\STM32\inc\stm32f10x_nvic.h)(0x650D3EB0)
@@ -1049,7 +1052,7 @@ I (..\..\..\..\..\uC-LIB\lib_mem.h)(0x650D3EB3)
 I (..\..\uCOS-III\lib_cfg.h)(0x650D3EB0)
 I (..\..\..\..\..\uC-LIB\lib_str.h)(0x650D3EB3)
 I (..\..\..\..\..\uC-LIB\lib_ascii.h)(0x650D3EB3)
-I (..\..\uCOS-III\app_cfg.h)(0x656B183B)
+I (..\..\uCOS-III\app_cfg.h)(0x6575689C)
 I (..\..\..\..\..\uCOS-III\Source\os.h)(0x650D3EB3)
 I (..\..\uCOS-III\os_cfg.h)(0x650D3EB0)
 I (..\..\..\..\..\uCOS-III\Source\os_type.h)(0x650D3EB3)
@@ -1062,3 +1065,112 @@ I (..\..\uCOS-III\includes.h)(0x650D3EB0)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63883AF8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63883AF8)
 I (..\..\..\..\..\uC-LIB\lib_math.h)(0x650D3EB3)
+F (..\..\BSP\ST\MPU-6050\my_hal.c)(0x65757A49)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -I ../../uCOS-III -I ../../BSP -I ../../BSP/OS/uCOS-III -I ../../BSP/ST/STM32/inc -I ../../BSP/KeilMDK -I ../../../../../uC-CPU -I ../../../../../uC-CPU/ARM-Cortex-M3/RealView -I ../../../../../uC-LIB -I ../../../../../uC-LIB/Ports/ARM-Cortex-M3/RealView -I ../../../../../uCOS-III/Source -I ../../../../../uCOS-III/Ports/ARM-Cortex-M3/Generic/RealView -I ../../BSP/ST/MPU-6050-IC:/Keil_v5/ARM/RV31/INC-IC:/Keil_v5/ARM/CMSIS/Include-IC:/Keil_v5/ARM/INC/ST/STM32F10x-D__UVISION_VERSION="538" -DUSE_STDPERIPH_DRIVER-o ./output/my_hal.o -MD)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_lib.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_map.h)(0x650D3EB0)
+I (..\..\uCOS-III\stm32f10x_conf.h)(0x650D3EB1)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_type.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\cortexm3_macro.h)(0x650D3EAF)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_adc.h)(0x650D3EAF)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_bkp.h)(0x650D3EAF)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_can.h)(0x650D3EAF)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_crc.h)(0x650D3EAF)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_dac.h)(0x650D3EAF)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_dbgmcu.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_dma.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_exti.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_flash.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_fsmc.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x65757335)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_i2c.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_iwdg.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_nvic.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_pwr.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_rcc.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_rtc.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_sdio.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_spi.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_systick.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_tim.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_usart.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_wwdg.h)(0x650D3EB0)
+I (..\..\BSP\bsp.h)(0x650FC77D)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63883AF8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63883AF8)
+I (..\..\..\..\..\uC-CPU\ARM-Cortex-M3\RealView\cpu.h)(0x650D3EB2)
+I (..\..\..\..\..\uC-CPU\cpu_def.h)(0x650D3EB2)
+I (..\..\uCOS-III\cpu_cfg.h)(0x650D3EB0)
+I (..\..\..\..\..\uC-CPU\cpu_core.h)(0x650D3EB2)
+I (..\..\..\..\..\uC-LIB\lib_def.h)(0x650D3EB3)
+I (..\..\..\..\..\uC-LIB\lib_mem.h)(0x650D3EB3)
+I (..\..\uCOS-III\lib_cfg.h)(0x650D3EB0)
+I (..\..\..\..\..\uC-LIB\lib_str.h)(0x650D3EB3)
+I (..\..\..\..\..\uC-LIB\lib_ascii.h)(0x650D3EB3)
+I (..\..\uCOS-III\app_cfg.h)(0x6575689C)
+I (..\..\..\..\..\uCOS-III\Source\os.h)(0x650D3EB3)
+I (..\..\uCOS-III\os_cfg.h)(0x650D3EB0)
+I (..\..\..\..\..\uCOS-III\Source\os_type.h)(0x650D3EB3)
+I (..\..\..\..\..\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView\os_cpu.h)(0x650D3EB3)
+I (..\..\BSP\OS\uCOS-III\bsp_os.h)(0x650D3EAF)
+I (..\..\BSP\bsp_ser.h)(0x650D3EAF)
+I (..\..\BSP\bsp_i2c.h)(0x650D3EAF)
+I (..\..\BSP\bsp_stlm75.h)(0x650D3EAF)
+F (..\..\BSP\ST\MPU-6050\Queue.c)(0x65751809)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -fno-function-sections -I ../../uCOS-III -I ../../BSP -I ../../BSP/OS/uCOS-III -I ../../BSP/ST/STM32/inc -I ../../BSP/KeilMDK -I ../../../../../uC-CPU -I ../../../../../uC-CPU/ARM-Cortex-M3/RealView -I ../../../../../uC-LIB -I ../../../../../uC-LIB/Ports/ARM-Cortex-M3/RealView -I ../../../../../uCOS-III/Source -I ../../../../../uCOS-III/Ports/ARM-Cortex-M3/Generic/RealView -I ../../BSP/ST/MPU-6050-IC:/Keil_v5/ARM/RV31/INC-IC:/Keil_v5/ARM/CMSIS/Include-IC:/Keil_v5/ARM/INC/ST/STM32F10x-D__UVISION_VERSION="538" -DUSE_STDPERIPH_DRIVER-o ./output/queue.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63883AF8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63883AF8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63883AF8)
+I (..\..\uCOS-III\includes.h)(0x650D3EB0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63883AF8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63883AF8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63883AF8)
+I (..\..\..\..\..\uC-CPU\ARM-Cortex-M3\RealView\cpu.h)(0x650D3EB2)
+I (..\..\..\..\..\uC-CPU\cpu_def.h)(0x650D3EB2)
+I (..\..\uCOS-III\cpu_cfg.h)(0x650D3EB0)
+I (..\..\..\..\..\uC-LIB\lib_def.h)(0x650D3EB3)
+I (..\..\..\..\..\uC-LIB\lib_ascii.h)(0x650D3EB3)
+I (..\..\..\..\..\uC-LIB\lib_math.h)(0x650D3EB3)
+I (..\..\..\..\..\uC-CPU\cpu_core.h)(0x650D3EB2)
+I (..\..\..\..\..\uC-LIB\lib_mem.h)(0x650D3EB3)
+I (..\..\uCOS-III\lib_cfg.h)(0x650D3EB0)
+I (..\..\..\..\..\uC-LIB\lib_str.h)(0x650D3EB3)
+I (..\..\BSP\bsp.h)(0x650FC77D)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_lib.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_map.h)(0x650D3EB0)
+I (..\..\uCOS-III\stm32f10x_conf.h)(0x650D3EB1)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_type.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\cortexm3_macro.h)(0x650D3EAF)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_adc.h)(0x650D3EAF)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_bkp.h)(0x650D3EAF)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_can.h)(0x650D3EAF)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_crc.h)(0x650D3EAF)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_dac.h)(0x650D3EAF)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_dbgmcu.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_dma.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_exti.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_flash.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_fsmc.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_gpio.h)(0x65757335)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_i2c.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_iwdg.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_nvic.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_pwr.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_rcc.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_rtc.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_sdio.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_spi.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_systick.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_tim.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_usart.h)(0x650D3EB0)
+I (..\..\BSP\ST\STM32\inc\stm32f10x_wwdg.h)(0x650D3EB0)
+I (..\..\uCOS-III\app_cfg.h)(0x6575689C)
+I (..\..\..\..\..\uCOS-III\Source\os.h)(0x650D3EB3)
+I (..\..\uCOS-III\os_cfg.h)(0x650D3EB0)
+I (..\..\..\..\..\uCOS-III\Source\os_type.h)(0x650D3EB3)
+I (..\..\..\..\..\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView\os_cpu.h)(0x650D3EB3)
+I (..\..\BSP\OS\uCOS-III\bsp_os.h)(0x650D3EAF)
+I (..\..\BSP\bsp_ser.h)(0x650D3EAF)
+I (..\..\BSP\bsp_i2c.h)(0x650D3EAF)
+I (..\..\BSP\bsp_stlm75.h)(0x650D3EAF)
+I (..\..\BSP\ST\MPU-6050\Queue.h)(0x65751831)
+F (..\..\BSP\ST\MPU-6050\my_hal.h)(0x65757A74)()
+F (..\..\BSP\ST\MPU-6050\Queue.h)(0x65751831)()

@@ -54,10 +54,9 @@
 *********************************************************************************************************
 */
 
-#define  APP_TASK_START_PRIO                        20
-#define  APP_TASK_COLLISION_PRIO                    15
-#define  APP_TASK_SUDDEN_ACCEL_PRIO                 16
-#define  APP_TASK_PRINT_DATA_PRIO                   19
+#define  APP_TASK_START_PRIO                        7
+#define  APP_TASK_COLLISION_PRIO                    5
+#define  APP_TASK_SUDDEN_ACCEL_PRIO                 6
 
 
 /*

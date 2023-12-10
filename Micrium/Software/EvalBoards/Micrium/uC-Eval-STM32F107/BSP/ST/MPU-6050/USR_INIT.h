@@ -4,15 +4,13 @@
 #define MPU6050_SCALE 0x00
 
 #define MPU6050_1_INT_PIN GPIO_Pin_1 // MPU6050_1의 INT 핀
-
-
 #define MPU6050_1_INT_PORT GPIOE // MPU6050_1의 INT 포트
-
-#define SHORTCIRCUIT_INT_PIN GPIO_Pin_5 // 단락 감지 센서의 INT 핀
-#define SHORTCIRCUIT_INT_PORT GPIOC // 단락 감지 센서의 INT 포트
 
 #define BTN_INT_PIN  GPIO_Pin_4 // BTN의 INT 핀
 #define BTN_INT_PORT GPIOC // BTN의 INT 포트
+
+#define SHORTCIRCUIT_INT_PIN  GPIO_Pin_10 // 단락 감지 센서의 INT 핀
+#define SHORTCIRCUIT_INT_PORT GPIOB // 단락 감지 센서의 INT 포트
 
 #define MPU6050_Threshold 1000 // Threshold 값
 
@@ -25,4 +23,4 @@ void NVIC_Configuration(void);
 
 void EXTI1_IRQHandler(void);
 void EXTI4_IRQHandler(void);
-void EXTI9_5_IRQHandler(void);
+void EXTI15_10_IRQHandler(void);
