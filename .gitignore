@@ -16,6 +16,7 @@
 thumbs.db
 *.~*
 
+
 # IAR Settings
 **/settings/*.crun
 **/settings/*.dbgdt
